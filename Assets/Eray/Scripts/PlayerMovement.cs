@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Eray.Scripts
 {
@@ -17,6 +18,9 @@ namespace Eray.Scripts
         private float _smoothAngleVelocity;
         private bool _isAiming;
         private bool _canJump;
+        private Vector3 worldPlayerDir;
+        private float angle;
+        private float angleSmooth = 2;
 
 
         private void Update()
@@ -25,6 +29,8 @@ namespace Eray.Scripts
             _horizontalValue = Input.GetAxisRaw("Horizontal");
 
             _playerDir = new Vector3(_horizontalValue, 0, _verticalValue).normalized;
+
+            worldPlayerDir =  transform.InverseTransformDirection(_playerDir);
 
             if (Input.GetMouseButtonDown(1))
             {
@@ -42,13 +48,12 @@ namespace Eray.Scripts
 
         private void FixedUpdate()
         {
-            Move();
+            Move2();
             if (_canJump)
             {
                 _canJump = false;
                 Jump();
             }
-                
         }
 
         private void Move()
@@ -60,25 +65,69 @@ namespace Eray.Scripts
                 var smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, 
                     _targetAngle, ref _smoothAngleVelocity, turnSmoothMult);
                 
-                transform.rotation = Quaternion.Euler(0, _targetAngle, 0);
+                transform.rotation = Quaternion.Euler(0, smoothAngle, 0);
 
-                Vector3 moveDirection = Quaternion.Euler(0, smoothAngle, 0) * Vector3.forward;
-                
-                
+                Vector3 moveDirection = Quaternion.Euler(0, _targetAngle, 0) * Vector3.forward;
+
+
+                //Vector3 moveDirection = Quaternion.LookRotation()
                 var moveMult = moveSpeed * Time.fixedDeltaTime;
 
                 //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection), Time.fixedDeltaTime * 4);
                 //transform.Translate(moveDirection.normalized * moveMult, Space.World);
                 //moveDirection = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z);
-                rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z) * moveMult;
+                //rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z) * moveMult;
+                // moveDirection.y = rb.velocity.y;
+                // rb.velocity = moveDirection * moveMult;
             }
+        }
+
+
+        private void Move2()
+        {
+            if (_playerDir.magnitude > .1f)
+            {
+                if (_horizontalValue == 0)
+                {
+                    
+                }
+                else if (_horizontalValue > 0.1f)
+                {
+                    angle += angleSmooth;
+                    transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+                }
+                else if (_horizontalValue < 0.1f)
+                {
+                    angle -= angleSmooth;
+                    transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+                }
+                
+
+                var localVal = rb.velocity;
+
+                var oldY = localVal.y;
+
+                localVal = transform.forward.normalized * (Time.fixedDeltaTime * moveSpeed * _playerDir.magnitude);
+
+                localVal.y = oldY;
+
+                rb.velocity = localVal;
+            }
+            else
+            {
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            }
+
         }
 
         private void Jump()
         {
             rb.AddForce(Vector3.up * jumpMult, ForceMode.Impulse);
         }
-        
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawSphere(transform.position, .2f);
+        }
     }
 }
