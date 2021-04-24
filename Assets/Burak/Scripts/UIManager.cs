@@ -27,7 +27,7 @@ namespace Burak.Scripts
         // Start is called before the first frame update
         void Start()
         {
-
+            BackToMenu();
         }
 
         // Update is called once per frame
@@ -46,12 +46,12 @@ namespace Burak.Scripts
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        public void ActivatePauseMenu()
+        public void Pause()
         {
             pauseMenu.SetActive(true);
         }
 
-        public void DeactivatePauseMenu()
+        public void Continue()
         {
             pauseMenu.SetActive(false);
         }
@@ -59,12 +59,20 @@ namespace Burak.Scripts
         public void CreditsPage()
         {
             mainMenu.SetActive(false);
+            pauseMenu.SetActive(false);
+            endGame.SetActive(false);
+            inGame.SetActive(false);
+            // activate only credits
             credits.SetActive(true);
         }
 
         public void BackToMenu()
         {
             credits.SetActive(false);
+            pauseMenu.SetActive(false);
+            endGame.SetActive(false);
+            inGame.SetActive(false);
+            // activate only menu
             mainMenu.SetActive(true);
         }
 

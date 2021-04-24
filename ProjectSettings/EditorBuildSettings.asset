@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Scenes/Burak.unity
+    guid: edb1f1849b918ee41977a97294c00b6d
+  - enabled: 1
+    path: Assets/Scenes/SafaTestScene.unity
+    guid: 4dcbf8a1827134841897e137f2eae17b
   m_configObjects: {}
