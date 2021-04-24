@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 namespace Burak.Scripts
 {
@@ -11,10 +12,15 @@ namespace Burak.Scripts
         public int mainLevelIndex = 1;
 
         public GameObject mainMenu;
+        public GameObject settings;
         public GameObject inGame;
         public GameObject pauseMenu;
         public GameObject endGame;
         public GameObject credits;
+
+        public AudioMixer audioMixer;
+
+        private bool isPaused;
 
         private void Awake()
         {
@@ -22,6 +28,7 @@ namespace Burak.Scripts
             {
                 instance = this;
             }
+            DontDestroyOnLoad(this);
         }
 
         // Start is called before the first frame update
@@ -30,14 +37,30 @@ namespace Burak.Scripts
             BackToMenu();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if(!isPaused)
+                {
+                    PauseGame();
+                }
+                else if(isPaused)
+                {
+                    ContinueGame();
+                }
+            }
+        }
 
+        public void SetVolume(float sliderValue)
+        {
+            sliderValue = Mathf.Log10(sliderValue) * 20;
+            audioMixer.SetFloat("AudioVolume", sliderValue);
         }
 
         public void StartGame()
         {
+            CloseAllPages();
             SceneManager.LoadScene(mainLevelIndex);
         }
 
@@ -46,32 +69,36 @@ namespace Burak.Scripts
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        public void Pause()
+        public void PauseGame()
         {
+            isPaused = true;
             pauseMenu.SetActive(true);
+
         }
 
-        public void Continue()
+        public void ContinueGame()
         {
+            isPaused = false;
             pauseMenu.SetActive(false);
+        }
+
+        public void SettingsPage()
+        {
+            CloseAllPages();
+            // activate only credits
+            settings.SetActive(true);
         }
 
         public void CreditsPage()
         {
-            mainMenu.SetActive(false);
-            pauseMenu.SetActive(false);
-            endGame.SetActive(false);
-            inGame.SetActive(false);
+            CloseAllPages();
             // activate only credits
             credits.SetActive(true);
         }
 
         public void BackToMenu()
         {
-            credits.SetActive(false);
-            pauseMenu.SetActive(false);
-            endGame.SetActive(false);
-            inGame.SetActive(false);
+            CloseAllPages();
             // activate only menu
             mainMenu.SetActive(true);
         }
@@ -79,6 +106,16 @@ namespace Burak.Scripts
         public void Quit()
         {
             Application.Quit();
+        }
+
+        private void CloseAllPages()
+        {
+            mainMenu.SetActive(false);
+            settings.SetActive(false);
+            inGame.SetActive(false);
+            pauseMenu.SetActive(false);
+            endGame.SetActive(false);
+            credits.SetActive(false);
         }
     }
 }
