@@ -1,102 +1,61 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 
 namespace Safa.Scripts
 {
-
-
-
+    
     public class Enemy : MonoBehaviour
     {
-        Transform player;
-
-
-
+        Player player;
         [SerializeField] GameObject bullet;
-        [SerializeField] GameObject bulletPoint;
+        [SerializeField] Transform bulletPoint;
         [SerializeField] private float timeBetweenAttacks;
         [SerializeField] public float attackRange;
-        private float attackSpeed;
+        [SerializeField] private float attackSpeed = 3f;
         [SerializeField] Transform headPivot;
         [SerializeField] float yOffset;
         
+        private float _attackTimer = 0f;
 
-
-
-
-
-
+        
         public virtual void Start()
         {
-            player = GameObject.FindObjectOfType<Player>().transform;
-            
-
-
+            player = FindObjectOfType<Player>();
+            if (!player)
+            {
+                Destroy(gameObject);
+            }
 
         }
 
         private void Update()
         {
-            
-            if (player != null)
+
+            if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
             {
-                if (Vector3.Distance(transform.position, player.position) < attackRange)
-                {
-                    var dir = player.position - headPivot.position;
-
-
-                    headPivot.transform.rotation = Quaternion.Lerp(headPivot.rotation, Quaternion.LookRotation(dir.normalized), Time.deltaTime * 4);
-
-
-                    if (Time.time >= attackSpeed)
-                    {
-
- 
-
-                        attackSpeed = Time.time + timeBetweenAttacks;
-                        RangedAttack();
-                        // Start attacking..
-
-                    }
-
-                } else
-                {
-
-                    // Do nothing..
-                }
-
+                var dir = player.transform.position - bullet.transform.position;
+                _attackTimer += Time.deltaTime;
+                headPivot.transform.localRotation = Quaternion.Lerp(headPivot.localRotation, Quaternion.LookRotation(dir.normalized), Time.deltaTime * 5);
                 
-
+                if (_attackTimer >= attackSpeed)
+                {
+                    _attackTimer = 0f;
+                    RangedAttack();
+                }
             }
-
         }
 
 
         public void RangedAttack()
         {
-
-
-
-            var clone = Instantiate(bullet, bulletPoint.transform);
-
+            var clone = Instantiate(bullet,bulletPoint);
             clone.transform.SetParent(transform.parent);
-
-
-
         }
-
-
-
-
-
-
-
-
-
-
+        
     }
 
 

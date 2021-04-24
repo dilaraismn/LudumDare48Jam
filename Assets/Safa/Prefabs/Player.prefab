@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3937585354709175600}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HeadPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3937585355260220847}
   - component: {fileID: 3937585355260220841}
   - component: {fileID: 3937585355260220840}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 3937585355558732909}
   - component: {fileID: 3937585355558732908}
   - component: {fileID: 96469322}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3937585355710837911}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: ModelRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 3937585355947217767}
   - component: {fileID: 3937585355947217766}
   - component: {fileID: 3937585355947217765}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

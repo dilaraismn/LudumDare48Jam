@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 1712748692}
   - component: {fileID: 1712748695}
   - component: {fileID: 1712748694}
-  - component: {fileID: 1712748693}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1712748693
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712748691}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8184579186406476603
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +92,7 @@ GameObject:
   - component: {fileID: 8184579186406476605}
   - component: {fileID: 8184579186406476602}
   - component: {fileID: 8184579186406476604}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,9 +140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7740848018751338329, guid: 4ee79e257d8a5b64d83338c6e04a4f3d, type: 3}
-  bulletPoint: {fileID: 8184579186514717891}
+  bulletPoint: {fileID: 8184579186514717890}
   timeBetweenAttacks: 3
   attackRange: 10
+  attackSpeed: 3
   headPivot: {fileID: 8184579187538869651}
   yOffset: 0
 --- !u!1 &8184579186514717891
@@ -168,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8184579186514717890}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: bulletPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,8 +169,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8184579186514717891}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.084, z: 0.231}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.124, z: 0.49999997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8184579187538869651}
@@ -198,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8184579187538869651}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HeadPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +199,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8184579187538869648}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.973, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -221,7 +208,7 @@ Transform:
   - {fileID: 8184579186514717890}
   m_Father: {fileID: 8184579187913436235}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &8184579187627496802
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,8 +220,7 @@ GameObject:
   - component: {fileID: 8184579187627496805}
   - component: {fileID: 8184579187627496806}
   - component: {fileID: 8184579187627496807}
-  - component: {fileID: 8184579187627496804}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,19 +290,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8184579187627496804
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8184579187627496802}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8184579187824336700
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +301,7 @@ GameObject:
   - component: {fileID: 8184579187824336703}
   - component: {fileID: 8184579187824336673}
   - component: {fileID: 8184579187824336702}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8184579187913436235}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ModelRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
