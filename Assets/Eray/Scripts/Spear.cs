@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Text;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -43,6 +44,8 @@ namespace Eray.Scripts
             rb.isKinematic = false;
             rb.velocity = transform.forward * speed;
             _isFired = true;
+
+            StartCoroutine("WaitForReturn");
 
         }
 
@@ -122,6 +125,14 @@ namespace Eray.Scripts
                 rb.isKinematic = true;
                 TargetHit = true;
             }
+        }
+
+        IEnumerator WaitForReturn()
+        {
+            yield return new WaitForSeconds(5f);
+
+            if (!TargetHit)
+                TargetHit = true;
         }
 
     }

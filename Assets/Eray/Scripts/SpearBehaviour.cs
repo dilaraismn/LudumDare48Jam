@@ -21,6 +21,7 @@ namespace Eray.Scripts
 
         private bool _spearThrown;
         private bool moveToHand;
+        private bool hasTarget;
 
         private void Start()
         {
@@ -39,21 +40,6 @@ namespace Eray.Scripts
 
         private void Update()
         {
-            if (canRotate)
-            {
-                spear.RotateSpear(targetPoint);
-                spear.LookTarget(targetPoint);
-            }
-
-            if (moveToHand && spear.TargetHit)
-            {
-                if(spear.MoveToHand())
-                {
-                    _spearThrown = false;
-                    moveToHand = false;
-                }
-            }
-
             if (!_spearThrown)
             {
                 if (Input.GetMouseButtonDown(1))
@@ -63,10 +49,12 @@ namespace Eray.Scripts
                     targetPoint.gameObject.SetActive(true);
                     _isAiming = true;
                     canRotate = true;
+                    hasTarget = true;
                 }
 
-                if (Input.GetMouseButtonUp(1))
+                if (Input.GetMouseButtonUp(1) && hasTarget)
                 {
+                    hasTarget = false;
                     spear.TargetHit = false;
                     targetPoint.gameObject.SetActive(false);
                     spear.MoveRoTarget();
@@ -80,6 +68,21 @@ namespace Eray.Scripts
                 if (Input.GetMouseButtonDown(1))
                 {
                     moveToHand = true;
+                }
+            }
+            
+            if (canRotate)
+            {
+                spear.RotateSpear(targetPoint);
+                spear.LookTarget(targetPoint);
+            }
+
+            if (moveToHand && spear.TargetHit)
+            {
+                if(spear.MoveToHand())
+                {
+                    _spearThrown = false;
+                    moveToHand = false;
                 }
             }
             
