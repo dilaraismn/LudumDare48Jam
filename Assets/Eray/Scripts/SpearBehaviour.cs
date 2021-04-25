@@ -45,7 +45,7 @@ namespace Eray.Scripts
                 spear.LookTarget(targetPoint);
             }
 
-            if (moveToHand)
+            if (moveToHand && spear.TargetHit)
             {
                 if(spear.MoveToHand())
                 {
@@ -67,6 +67,7 @@ namespace Eray.Scripts
 
                 if (Input.GetMouseButtonUp(1))
                 {
+                    spear.TargetHit = false;
                     targetPoint.gameObject.SetActive(false);
                     spear.MoveRoTarget();
                     _isAiming = false;

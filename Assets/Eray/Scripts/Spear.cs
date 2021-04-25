@@ -18,6 +18,8 @@ namespace Eray.Scripts
         private bool _isFired;
         private bool _onHand;
 
+        public bool TargetHit;
+
         private void OnEnable()
         {
             _localPos = transform.localPosition;
@@ -49,6 +51,8 @@ namespace Eray.Scripts
             if (_onHand == false)
             {
                 transform.position = Vector3.MoveTowards(transform.position, spearHolder.position, Time.deltaTime * speed);
+                transform.rotation = Quaternion.Slerp(transform.rotation, spearHolder.rotation, Time.deltaTime * .5f);
+                
                 if (transform.position == spearHolder.position)
                 {
                     transform.rotation = spearHolder.rotation;
@@ -116,6 +120,7 @@ namespace Eray.Scripts
                 rb.velocity = Vector3.zero;
                 rb.useGravity = false;
                 rb.isKinematic = true;
+                TargetHit = true;
             }
         }
         
