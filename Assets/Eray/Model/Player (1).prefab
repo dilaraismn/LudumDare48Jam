@@ -175,6 +175,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   spearHolder: {fileID: 1334629634}
+  TargetHit: 0
 --- !u!1 &16873685559788611
 GameObject:
   m_ObjectHideFlags: 0
