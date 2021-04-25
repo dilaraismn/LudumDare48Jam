@@ -119,11 +119,22 @@ namespace Eray.Scripts
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                _isFired = false;
-                rb.velocity = Vector3.zero;
-                rb.useGravity = false;
-                rb.isKinematic = true;
-                TargetHit = true;
+                if (_isFired)
+                {
+                    _isFired = false;
+                    rb.velocity = Vector3.zero;
+                    rb.useGravity = false;
+                    rb.isKinematic = true;
+                    TargetHit = true;
+                    var localRot = transform.forward;
+                    var scale = transform.lossyScale;
+                    transform.SetParent(other.gameObject.transform);
+                    transform.forward = localRot;
+
+                    //transform.localScale = newScale;
+
+                }
+                
             }
         }
 

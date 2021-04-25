@@ -67,6 +67,7 @@ namespace Eray.Scripts
             {
                 if (Input.GetMouseButtonDown(1))
                 {
+                    spear.transform.SetParent(null);
                     moveToHand = true;
                 }
             }
