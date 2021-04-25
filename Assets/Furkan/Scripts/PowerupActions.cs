@@ -30,5 +30,27 @@ namespace Furkan.Powerup
         {
             player.speed /= multiplier;
         }
+
+        public void SlowTimeStartAction()
+        {
+            Time.timeScale = .5f;
+        }
+
+        public void SlowTimeEndAction()
+        {
+            Time.timeScale = 1;
+        }
+
+        public void ImmuneStartAction()
+        {
+            player.takeDamage = false;
+        }
+
+        public void ImmuneEndAction()
+        {
+            player.takeDamage = true;
+        }
+
+
     }
 }

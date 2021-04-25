@@ -13,6 +13,7 @@ namespace Furkan.Powerup
 
         public float health;
         public float speed;
+        public bool takeDamage;
 
         private void Awake()
         {
