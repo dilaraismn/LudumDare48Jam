@@ -55,7 +55,7 @@ namespace Burak.Scripts
         public void SetVolume(float sliderValue)
         {
             sliderValue = Mathf.Log10(sliderValue) * 20;
-            audioMixer.SetFloat("AudioVolume", sliderValue);
+            audioMixer.SetFloat("MasterVolume", sliderValue);
         }
 
         public void StartGame()
@@ -80,6 +80,11 @@ namespace Burak.Scripts
         {
             isPaused = false;
             pauseMenu.SetActive(false);
+        }
+
+        public void NextLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         public void SettingsPage()

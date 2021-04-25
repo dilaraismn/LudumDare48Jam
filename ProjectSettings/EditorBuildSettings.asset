@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Burak.unity
+    path: Assets/Burak/Burak.unity
     guid: edb1f1849b918ee41977a97294c00b6d
+  - enabled: 1
+    path: Assets/Burak/Burak 1.unity
+    guid: 11531eeabe52add42b4ea5fada1734bd
   - enabled: 1
     path: Assets/Scenes/SafaTestScene.unity
     guid: 4dcbf8a1827134841897e137f2eae17b
+  - enabled: 1
+    path: Assets/Scenes/Cagri_Test_Scene.unity
+    guid: 2827d147356351d40b152a97f4d41237
   m_configObjects: {}
