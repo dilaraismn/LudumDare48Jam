@@ -34,7 +34,7 @@ namespace Eray.Scripts
 
         public bool IsAttacking => _isAttacking;
 
-        private HealthSystem _healthSystem;
+        [HideInInspector]public HealthSystem _healthSystem;
         private void OnEnable()
         {
             _healthSystem.onDeath += OnPlayerDeath;

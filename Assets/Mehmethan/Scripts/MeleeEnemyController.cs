@@ -1,3 +1,5 @@
+using Cagri.Scripts;
+using Safa.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,10 +15,28 @@ namespace Mehmethan.Scripts
         private float _timeSinceLastAttack;
         public bool TriggerEnemy;
         private Animator animator;
+        [HideInInspector]public HealthSystem healthSystem;
+
+        private void OnEnable()
+        {
+            healthSystem.onDeath += Enemy_onDeath;
+        }
+
+        private void Enemy_onDeath()
+        {
+            Destroy(gameObject);
+            //todo
+        }
+
+        private void OnDisable()
+        {
+            healthSystem.onDeath -= Enemy_onDeath;
+
+        }
         void Start()
         {
             animator = GetComponent<Animator>();
-            _target = PlayerManager.instance.player.transform;
+            _target = LevelManager.manager.player.transform;
             _agent = GetComponent<NavMeshAgent>();
         }
 
@@ -57,6 +77,7 @@ namespace Mehmethan.Scripts
         private void OnAttack()
         {
             Debug.Log("Saldırı yaptım");
+            //todo kilica ekleme yapilcak
         }
         
         private void RotateTarget()

@@ -20,10 +20,10 @@ namespace Safa.Scripts
         [SerializeField] private float attackSpeed = 3f;
          Transform targetPoint;
         [SerializeField] float yOffset;
-        HealthSystem healthSystem;
         public Animator anim;
         
         private float _attackTimer = 0f;
+        [HideInInspector]public HealthSystem healthSystem;
 
 
 
