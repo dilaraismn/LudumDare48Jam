@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cagri.Scripts;
+using Eray.Scripts;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -10,7 +12,7 @@ namespace Safa.Scripts
     
     public class Enemy : MonoBehaviour
     {
-        Player player;
+        PlayerMovement player;
         [SerializeField] GameObject bullet;
         [SerializeField] Transform bulletPoint;
         [SerializeField] private float timeBetweenAttacks;
@@ -55,7 +57,7 @@ namespace Safa.Scripts
 
         public virtual void Start()
         {
-            player = FindObjectOfType<Player>();
+            player = LevelManager.manager.player;
 
             
            
@@ -88,7 +90,7 @@ namespace Safa.Scripts
 
             if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
             {
-                var attackDir = player.targetPoint.transform.position - bulletPoint.transform.position;
+                var attackDir = player.cameraTarget.transform.position - bulletPoint.transform.position;
                 var dir = player.transform.position - bulletPoint.transform.position;
 
               bulletPoint.transform.rotation = Quaternion.LookRotation(attackDir);

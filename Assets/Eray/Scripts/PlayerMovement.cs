@@ -17,7 +17,8 @@ namespace Eray.Scripts
         [SerializeField] private LayerMask groundCheckLayers;
         private float _verticalValue;
         private float _horizontalValue;
-
+        public Transform cameraTarget;
+        
         private Vector3 _playerDir;
         private float _targetAngle;
         //private float _smoothAngleVelocity;
