@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Cagri.Scripts
@@ -7,6 +8,7 @@ namespace Cagri.Scripts
     {
         public static LevelManager manager;
 
+        
         private void Awake()
         {
             manager = this;
