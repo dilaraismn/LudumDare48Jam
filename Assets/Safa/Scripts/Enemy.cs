@@ -16,9 +16,10 @@ namespace Safa.Scripts
         [SerializeField] private float timeBetweenAttacks;
         [SerializeField] public float attackRange;
         [SerializeField] private float attackSpeed = 3f;
-        [SerializeField] Transform headPivot;
+        [SerializeField] Transform targetPoint;
         [SerializeField] float yOffset;
         HealthSystem healthSystem;
+        public Animator anim;
         
         private float _attackTimer = 0f;
 
@@ -27,6 +28,8 @@ namespace Safa.Scripts
         private void Awake()
         {
             healthSystem = GetComponent<HealthSystem>();
+            
+
 
 
         }
@@ -76,21 +79,33 @@ namespace Safa.Scripts
 
             if (!player)
             {
+                anim.SetBool("attack", false);
+
                 return;
+
 
             }
 
             if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
             {
-                var dir = player.transform.position - bullet.transform.position;
-                _attackTimer += Time.deltaTime;
-                headPivot.transform.localRotation = Quaternion.Lerp(headPivot.localRotation, Quaternion.LookRotation(dir.normalized), Time.deltaTime * 5);
-                
-                if (_attackTimer >= attackSpeed)
-                {
-                    _attackTimer = 0f;
-                    RangedAttack();
-                }
+                var attackDir = player.targetPoint.transform.position - bulletPoint.transform.position;
+                var dir = player.transform.position - bulletPoint.transform.position;
+
+              bulletPoint.transform.rotation = Quaternion.LookRotation(attackDir);
+
+              transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.LookRotation(dir.normalized), Time.deltaTime * 5);
+
+
+
+
+                anim.SetBool("attack", true);
+
+
+
+            } else
+            {
+                anim.SetBool("attack", false);
+
             }
         }
 

@@ -9,6 +9,7 @@ namespace Safa.Scripts
     {
 
         HealthSystem healthSystem;
+        public Transform targetPoint;
 
 
         private void Awake()
