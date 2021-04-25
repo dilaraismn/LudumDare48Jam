@@ -15,12 +15,9 @@ namespace Burak.Scripts
         [System.Serializable]
         public class AudioTrack
         {
-            //public SourceType sourceType;
             public AudioSource audioSource;
             public AudioClip[] audioClips;
-            //public Clip clipTag;
         }
-
 
         private void Awake()
         {
@@ -28,11 +25,12 @@ namespace Burak.Scripts
             {
                 instance = this;
             }
+            DontDestroyOnLoad(this);
         }
 
         public void PlaySound(int audioSourceIndex, int clipIndex)
         {
-            audioTracks[audioSourceIndex-1].audioSource.clip = audioTracks[audioSourceIndex-1].audioClips[clipIndex-1];
+            audioTracks[audioSourceIndex - 1].audioSource.clip = audioTracks[audioSourceIndex-1].audioClips[clipIndex-1];
             audioTracks[audioSourceIndex - 1].audioSource.Play();
         }
 
