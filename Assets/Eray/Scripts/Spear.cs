@@ -61,6 +61,7 @@ namespace Eray.Scripts
                     transform.rotation = spearHolder.rotation;
                     transform.SetParent(spearHolder);
                     transform.localPosition = _localPos;
+                    transform.localScale = Vector3.one;
                     _onHand = true;
                     return _onHand;
                 }
@@ -126,13 +127,7 @@ namespace Eray.Scripts
                     rb.useGravity = false;
                     rb.isKinematic = true;
                     TargetHit = true;
-                    var localRot = transform.forward;
-                    var scale = transform.lossyScale;
                     transform.SetParent(other.gameObject.transform);
-                    transform.forward = localRot;
-
-                    //transform.localScale = newScale;
-
                 }
                 
             }

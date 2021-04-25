@@ -102,16 +102,20 @@ namespace Eray.Scripts
                     _angle -= turnAngleSmooth;
                     transform.rotation = Quaternion.AngleAxis(_angle, Vector3.up);
                 }
-                
 
+
+                //rb.velocity = new Vector3(_playerDir.x, rb.velocity.y, _playerDir.z) * (moveSpeed * Time.fixedDeltaTime);
                 var localVal = rb.velocity;
-
+                
                 var oldY = localVal.y;
-
-                localVal = transform.forward.normalized * (Time.fixedDeltaTime * moveSpeed * _playerDir.magnitude);
-
+                
+                if(_playerDir.z > 0)
+                    localVal = transform.forward.normalized * (Time.fixedDeltaTime * moveSpeed * _playerDir.magnitude);
+                else if (_playerDir.z < 0)
+                    localVal = transform.forward.normalized * (-1 * (Time.fixedDeltaTime * moveSpeed * _playerDir.magnitude));
+                
                 localVal.y = oldY;
-
+                
                 rb.velocity = localVal;
             }
             else
