@@ -18,22 +18,67 @@ namespace Safa.Scripts
         [SerializeField] private float attackSpeed = 3f;
         [SerializeField] Transform headPivot;
         [SerializeField] float yOffset;
+        HealthSystem healthSystem;
         
         private float _attackTimer = 0f;
 
-        
+
+
+        private void Awake()
+        {
+            healthSystem = GetComponent<HealthSystem>();
+
+
+        }
+
+
+        private void OnEnable()
+        {
+            healthSystem.onDeath += Enemy_onDeath;
+        }
+
+        private void Enemy_onDeath()
+        {
+            Debug.Log("Enemy died");
+        }
+
+        private void OnDisable()
+        {
+            healthSystem.onDeath -= Enemy_onDeath;
+
+        }
+
+
+
         public virtual void Start()
         {
             player = FindObjectOfType<Player>();
+
+            
+           
+
+
             if (!player)
             {
                 Destroy(gameObject);
             }
+            
+            
+            
 
         }
 
+       
+
         private void Update()
         {
+
+
+            if (!player)
+            {
+                return;
+
+            }
 
             if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
             {
