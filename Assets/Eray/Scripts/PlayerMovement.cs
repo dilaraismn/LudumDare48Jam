@@ -13,6 +13,7 @@ namespace Eray.Scripts
         [SerializeField] private Rigidbody rb;
         [SerializeField] private Animator animator;
         [SerializeField] private Transform cam;
+        [SerializeField] private SpearBehaviour sb;
         [SerializeField] private LayerMask groundCheckLayers;
         private float _verticalValue;
         private float _horizontalValue;
@@ -27,6 +28,9 @@ namespace Eray.Scripts
         private bool _isRunning;
         private bool _isJumping;
         private bool _onGround;
+        private bool _isAttacking;
+
+        public bool IsAttacking => _isAttacking;
 
 
         private void Update()
@@ -37,21 +41,33 @@ namespace Eray.Scripts
 
             _onGround = GroundCheck();
             _playerDir = new Vector3(_horizontalValue, 0, _verticalValue).normalized;
-            
+
 
             if (Input.GetKeyDown(KeyCode.Space))
-                _canJump = true;
+            {
+                if(!_isAttacking)
+                    _canJump = true;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if(sb.SpearThrown == false)
+                    _isAttacking = true;
+            }
             
             HandleAnimation();
         }
 
         private void FixedUpdate()
         {
-            Move2();
-            if (_canJump && _onGround)
+            if (!_isAttacking)
             {
-                _canJump = false;
-                Jump();
+                Move2();
+                if (_canJump && _onGround)
+                {
+                    _canJump = false;
+                    Jump();
+                }
             }
         }
 
@@ -129,6 +145,7 @@ namespace Eray.Scripts
         private void HandleAnimation()
         {
             animator.SetBool("isRunning", _isRunning);
+            animator.SetBool("isAttacking", _isAttacking);
         }
         
 
@@ -148,8 +165,14 @@ namespace Eray.Scripts
 
             return Physics.Raycast(pos, Vector3.down, 1.1f, groundCheckLayers);
         }
+
         
         
+        //using in animation event
+        public void SetAttackingFalse()
+        {
+            _isAttacking = false;
+        }
         
         
 

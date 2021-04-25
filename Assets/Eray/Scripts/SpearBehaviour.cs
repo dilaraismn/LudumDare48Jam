@@ -6,11 +6,12 @@ namespace Eray.Scripts
 {
     public class SpearBehaviour : MonoBehaviour
     {
-        [SerializeField] private Transform spearHolder;
         [SerializeField] private Spear spear;
         [SerializeField] private Transform targetPoint;
         [SerializeField] private LayerMask targetLayers;
         [SerializeField] private Transform hoverHolder;
+
+        private PlayerMovement _pm;
 
         private Vector3 _target;
 
@@ -19,9 +20,17 @@ namespace Eray.Scripts
         private Vector3 _mousePos;
         private bool canRotate;
 
+        
         private bool _spearThrown;
-        private bool moveToHand;
-        private bool hasTarget;
+        private bool _moveToHand;
+        private bool _hasTarget;
+
+        public bool SpearThrown => _spearThrown;
+
+        private void Awake()
+        {
+            _pm = GetComponent<PlayerMovement>();
+        }
 
         private void Start()
         {
@@ -42,33 +51,37 @@ namespace Eray.Scripts
         {
             if (!_spearThrown)
             {
-                if (Input.GetMouseButtonDown(1))
+                if (_pm.IsAttacking == false)
                 {
-                    spear.transform.parent = hoverHolder;
-                    spear.transform.position = hoverHolder.position;
-                    targetPoint.gameObject.SetActive(true);
-                    _isAiming = true;
-                    canRotate = true;
-                    hasTarget = true;
-                }
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        spear.transform.parent = hoverHolder;
+                        spear.transform.position = hoverHolder.position;
+                        targetPoint.gameObject.SetActive(true);
+                        _isAiming = true;
+                        canRotate = true;
+                        _hasTarget = true;
+                    }
 
-                if (Input.GetMouseButtonUp(1) && hasTarget)
-                {
-                    hasTarget = false;
-                    spear.TargetHit = false;
-                    targetPoint.gameObject.SetActive(false);
-                    spear.MoveRoTarget();
-                    _isAiming = false;
-                    canRotate = false;
-                    _spearThrown = true;
+                    if (Input.GetMouseButtonUp(1) && _hasTarget)
+                    {
+                        _hasTarget = false;
+                        spear.TargetHit = false;
+                        targetPoint.gameObject.SetActive(false);
+                        spear.MoveRoTarget();
+                        _isAiming = false;
+                        canRotate = false;
+                        _spearThrown = true;
+                    }
                 }
+               
             }
             else
             {
                 if (Input.GetMouseButtonDown(1))
                 {
                     spear.transform.SetParent(null);
-                    moveToHand = true;
+                    _moveToHand = true;
                 }
             }
             
@@ -78,12 +91,12 @@ namespace Eray.Scripts
                 spear.LookTarget(targetPoint);
             }
 
-            if (moveToHand && spear.TargetHit)
+            if (_moveToHand && spear.TargetHit)
             {
                 if(spear.MoveToHand())
                 {
                     _spearThrown = false;
-                    moveToHand = false;
+                    _moveToHand = false;
                 }
             }
             
