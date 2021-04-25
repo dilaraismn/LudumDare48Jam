@@ -17,6 +17,8 @@ namespace Mehmethan.Scripts
         public bool TriggerArcherEnemy;
         private Quaternion lookRotation;
         private Animator animator;
+        public Animator bowAnimator;
+        public Transform ArrowPossition;
         void Start()
         {
             animator = GetComponent<Animator>();
@@ -50,9 +52,11 @@ namespace Mehmethan.Scripts
             {
                 RotateTarget();
                 animator.SetBool("Attack",false);
+                bowAnimator.SetBool("Attack",false);
                 if (_timeSinceLastAttack > timeBetweenAttacks)
                 {
                     animator.SetBool("Attack",true);
+                    bowAnimator.SetBool("Attack",true);
                     OnAttack();
                     _timeSinceLastAttack = 0;
                 }
@@ -72,8 +76,14 @@ namespace Mehmethan.Scripts
         
         private void OnAttack()
         {
-            Instantiate(bow, transform.position, lookRotation);
+            StartCoroutine(BowForward());
             Debug.Log("Saldırı yaptım");
+        }
+
+        IEnumerator BowForward()
+        {
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(bow, ArrowPossition.position, lookRotation);
         }
 
         private void OnDrawGizmosSelected()
