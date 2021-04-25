@@ -1,4 +1,5 @@
 ﻿using System;
+using Safa.Scripts;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -33,6 +34,27 @@ namespace Eray.Scripts
 
         public bool IsAttacking => _isAttacking;
 
+        private HealthSystem _healthSystem;
+        private void OnEnable()
+        {
+            _healthSystem.onDeath += OnPlayerDeath;
+        }
+
+        public void OnPlayerDeath()
+        {
+            Destroy(gameObject);
+            //todo lose game
+        }
+
+        private void OnDisable()
+        {
+            _healthSystem.onDeath -= OnPlayerDeath;
+        }
+
+        private void Awake()
+        {
+            _healthSystem = GetComponent<HealthSystem>();
+        }
 
         private void Update()
         {

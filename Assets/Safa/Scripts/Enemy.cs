@@ -18,7 +18,7 @@ namespace Safa.Scripts
         [SerializeField] private float timeBetweenAttacks;
         [SerializeField] public float attackRange;
         [SerializeField] private float attackSpeed = 3f;
-        [SerializeField] Transform targetPoint;
+         Transform targetPoint;
         [SerializeField] float yOffset;
         HealthSystem healthSystem;
         public Animator anim;
@@ -60,13 +60,7 @@ namespace Safa.Scripts
             player = LevelManager.manager.player;
 
             
-           
-
-
-            if (!player)
-            {
-                Destroy(gameObject);
-            }
+            
             
             
             

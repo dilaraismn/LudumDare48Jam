@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &142409990185284423
 Transform:
   m_ObjectHideFlags: 0
@@ -931,6 +931,7 @@ GameObject:
   - component: {fileID: 4892264371814593883}
   - component: {fileID: 5703168287469900889}
   - component: {fileID: 441149534}
+  - component: {fileID: 2746475768478522244}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Untagged
@@ -992,9 +993,11 @@ MonoBehaviour:
   rb: {fileID: 4892264371814593883}
   animator: {fileID: 1337082208131159194}
   cam: {fileID: 0}
+  sb: {fileID: 441149534}
   groundCheckLayers:
     serializedVersion: 2
     m_Bits: 2048
+  cameraTarget: {fileID: 4892264373407170540}
 --- !u!54 &4892264371814593883
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1022,8 +1025,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.88, y: 1, z: 2.71}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 2.5684273, y: 9.910998, z: 4.226323}
+  m_Center: {x: -0.031157508, y: 4.955499, z: -0.010385662}
 --- !u!114 &441149534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,13 +1039,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c62dfc60294af99a2df66109c6152c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spearHolder: {fileID: 1334629634}
   spear: {fileID: 1502781649}
   targetPoint: {fileID: 0}
   targetLayers:
     serializedVersion: 2
     m_Bits: 2048
   hoverHolder: {fileID: 458740727}
+--- !u!114 &2746475768478522244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703168287469900890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b48d4138f804c41b0b80b33f3ff4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  healthMax: 100
 --- !u!1 &5868649640359157478
 GameObject:
   m_ObjectHideFlags: 0

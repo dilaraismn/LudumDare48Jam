@@ -22,7 +22,7 @@ namespace Safa.Scripts
 
         private void Awake()
         {
-
+            currentHealth = healthMax;
 
         }
 
