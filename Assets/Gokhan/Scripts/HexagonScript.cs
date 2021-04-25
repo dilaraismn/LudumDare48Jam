@@ -43,7 +43,11 @@ namespace Gokhan.Scripts
         }
         private void OnCollisionExit(Collision collision)
         {
-            ParentFormat();
+            if (collision.gameObject.GetComponent<GameMechanicManager>())
+            {
+                ParentFormat();
+            }
+           
         }
         public GameObject GetParentName()
         {

@@ -12,6 +12,8 @@ namespace Gokhan.Scripts
         bool onV1, onV2;
         void Awake()
         {
+            r1 = transform.GetChild(0).gameObject.transform;
+            r2 = transform.GetChild(1).gameObject.transform;
             onV1 = true;
             v1 = r1.position;
             v2 = r2.position;
