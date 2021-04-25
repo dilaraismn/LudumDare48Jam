@@ -16,9 +16,10 @@ namespace Mehmethan.Scripts
         private float _timeSinceLastAttack;
         public bool TriggerArcherEnemy;
         private Quaternion lookRotation;
-       
+        private Animator animator;
         void Start()
         {
+            animator = GetComponent<Animator>();
             _target = PlayerManager.instance.player.transform;
             _agent = GetComponent<NavMeshAgent>();
         }
@@ -33,21 +34,32 @@ namespace Mehmethan.Scripts
             {
                 _agent.stoppingDistance = 5f;
                 TriggerArcherEnemy = true;
+                _agent.speed = 2.5f;
+                animator.SetBool("Run",true);
                 _agent.SetDestination(_target.position);
             }
             else
             {
                 _agent.stoppingDistance = 2.5f;
+                _agent.speed = 1f;
+                animator.SetBool("Run",false);
                 TriggerArcherEnemy = false;
             }
 
             if (distance <= _agent.stoppingDistance)
             {
                 RotateTarget();
+                animator.SetBool("Attack",false);
                 if (_timeSinceLastAttack > timeBetweenAttacks)
                 {
+                    animator.SetBool("Attack",true);
                     OnAttack();
                     _timeSinceLastAttack = 0;
+                }
+
+                if (_timeSinceLastAttack<timeBetweenAttacks)
+                {
+                   // Reload Animasyon
                 }
             }
         }
