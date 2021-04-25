@@ -123,8 +123,6 @@ namespace Eray.Scripts
                 TargetHit = true;
             }
         }
-        
-        
 
     }
 }
