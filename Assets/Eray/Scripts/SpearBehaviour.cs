@@ -19,21 +19,12 @@ namespace Eray.Scripts
         private Vector3 _mousePos;
         private bool canRotate;
 
+        private bool _spearThrown;
+        private bool moveToHand;
+
         private void Start()
         {
             _camera = Camera.main;
-        }
-
-
-        private void Throw()
-        {
-            
-            
-        }
-
-        private void Pull()
-        {
-            
         }
 
         private void Aim()
@@ -54,22 +45,44 @@ namespace Eray.Scripts
                 spear.LookTarget(targetPoint);
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (moveToHand)
             {
-                spear.transform.parent = hoverHolder;
-                spear.transform.position = hoverHolder.position;
-                targetPoint.gameObject.SetActive(true);
-                _isAiming = true;
-                canRotate = true;
+                if(spear.MoveToHand())
+                {
+                    _spearThrown = false;
+                    moveToHand = false;
+                }
             }
 
-            if (Input.GetMouseButtonUp(1))
+            if (!_spearThrown)
             {
-                targetPoint.gameObject.SetActive(false);
-                spear.MoveRoTarget();
-                _isAiming = false;
-                canRotate = false;
+                if (Input.GetMouseButtonDown(1))
+                {
+                    spear.transform.parent = hoverHolder;
+                    spear.transform.position = hoverHolder.position;
+                    targetPoint.gameObject.SetActive(true);
+                    _isAiming = true;
+                    canRotate = true;
+                }
+
+                if (Input.GetMouseButtonUp(1))
+                {
+                    targetPoint.gameObject.SetActive(false);
+                    spear.MoveRoTarget();
+                    _isAiming = false;
+                    canRotate = false;
+                    _spearThrown = true;
+                }
             }
+            else
+            {
+                if (Input.GetMouseButtonDown(1))
+                {
+                    moveToHand = true;
+                }
+            }
+            
+           
             
             if(_isAiming)
                 Aim();

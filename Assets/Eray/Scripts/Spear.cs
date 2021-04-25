@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -10,8 +11,18 @@ namespace Eray.Scripts
         [SerializeField] private float speed;
         [SerializeField] private float turnSpeed;
         [SerializeField] private LayerMask targetLayer;
+        [SerializeField] private Transform spearHolder;
+
+        private Vector3 _localPos;
 
         private bool _isFired;
+        private bool _onHand;
+
+        private void OnEnable()
+        {
+            _localPos = transform.localPosition;
+
+        }
 
         public void LookTarget(Transform target)
         {
@@ -24,12 +35,31 @@ namespace Eray.Scripts
         
         public void MoveRoTarget()
         {
+            _onHand = false;
             transform.parent = null;
             rb.useGravity = true;
             rb.isKinematic = false;
             rb.velocity = transform.forward * speed;
             _isFired = true;
 
+        }
+
+        public bool MoveToHand()
+        {
+            if (_onHand == false)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, spearHolder.position, Time.deltaTime * speed);
+                if (transform.position == spearHolder.position)
+                {
+                    transform.rotation = spearHolder.rotation;
+                    transform.SetParent(spearHolder);
+                    transform.localPosition = _localPos;
+                    _onHand = true;
+                    return _onHand;
+                }
+            }
+
+            return _onHand;
         }
 
         public float? RotateSpear(Transform target)
@@ -78,9 +108,9 @@ namespace Eray.Scripts
                 transform.forward = rb.velocity;
         }
 
-        private void OnCollisionEnter(Collision other)
+        private void OnTriggerEnter(Collider other)
         {
-            if (other.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 _isFired = false;
                 rb.velocity = Vector3.zero;
@@ -88,11 +118,8 @@ namespace Eray.Scripts
                 rb.isKinematic = true;
             }
         }
-
-        private void UseRbConstrains()
-        {
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-        }
         
+        
+
     }
 }
