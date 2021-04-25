@@ -3,14 +3,15 @@ using UnityEngine.AI;
 
 namespace Mehmethan.Scripts
 {
-    public class EnemyController : MonoBehaviour
+    public class MeleeEnemyController : MonoBehaviour
     {
-        [SerializeField] private float  lookRadius = 3f;
+        
+        [SerializeField] private float  lookRadius = 4f;
         [SerializeField] private float timeBetweenAttacks;
         private Transform _target;
         private NavMeshAgent _agent;
         private float _timeSinceLastAttack;
-        
+        public bool TriggerEnemy;
         void Start()
         {
             _target = PlayerManager.instance.player.transform;
@@ -22,10 +23,17 @@ namespace Mehmethan.Scripts
         {
             _timeSinceLastAttack += Time.deltaTime;
             float distance = Vector3.Distance(_target.position, transform.position);
+            
             if (distance <= lookRadius)
             {
+                TriggerEnemy = true;
                 _agent.SetDestination(_target.position);
             }
+            else
+            {
+                TriggerEnemy = false;
+            }
+            
             if (distance <= _agent.stoppingDistance)
             {
                 RotateTarget();
@@ -35,6 +43,7 @@ namespace Mehmethan.Scripts
                     _timeSinceLastAttack = 0;
                 }
             }
+            
         }
 
         private void OnAttack()
