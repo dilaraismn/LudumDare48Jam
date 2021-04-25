@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace Mehmethan.Scripts
 {
-    public class MeleeEnemyController : MonoBehaviour
+    public class MeleeEnemyController : MonoBehaviour,IEnemy
     {
         
         [SerializeField] private float  lookRadius = 4f;
@@ -91,6 +91,12 @@ namespace Mehmethan.Scripts
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, lookRadius);
+        }
+
+        public void OnPlayerHit()
+        {
+            healthSystem.DealDamage(LevelManager.manager.player.playerDamage);
+
         }
     }
 } 

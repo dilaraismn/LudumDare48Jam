@@ -33,7 +33,7 @@ namespace Eray.Scripts
         private bool _isAttacking;
 
         public bool IsAttacking => _isAttacking;
-
+        public float playerDamage;
         [HideInInspector]public HealthSystem _healthSystem;
         private void OnEnable()
         {

@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Safa.Scripts
 {
     
-    public class Enemy : MonoBehaviour
+    public class Enemy : MonoBehaviour,IEnemy
     {
         PlayerMovement player;
         [SerializeField] GameObject bullet;
@@ -111,7 +111,12 @@ namespace Safa.Scripts
             var clone = Instantiate(bullet,bulletPoint);
             clone.transform.SetParent(transform.parent);
         }
-        
+
+        public void OnPlayerHit()
+        {
+            healthSystem.DealDamage(LevelManager.manager.player.playerDamage);
+
+        }
     }
 
 

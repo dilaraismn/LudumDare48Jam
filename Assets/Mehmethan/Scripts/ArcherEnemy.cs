@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 namespace Mehmethan.Scripts
 {
-    public class ArcherEnemy : MonoBehaviour
+    public class ArcherEnemy : MonoBehaviour,IEnemy
     {
         [SerializeField] private float lookRadius = 6f;
         [SerializeField] private float timeBetweenAttacks;
@@ -111,6 +111,13 @@ namespace Mehmethan.Scripts
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, lookRadius);
+        }
+
+       
+
+        public void OnPlayerHit()
+        {
+            healthSystem.DealDamage(LevelManager.manager.player.playerDamage);
         }
     }
 }
