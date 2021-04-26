@@ -9,11 +9,13 @@ namespace Cagri.Scripts
     public class LevelManager : MonoBehaviour
     {
         public static LevelManager manager;
-        public PlayerMovement player;
+        [HideInInspector]public PlayerMovement player;
         
         private void Awake()
         {
+            player = FindObjectOfType<PlayerMovement>();
             manager = this;
+            
         }
 
         private void Start()
