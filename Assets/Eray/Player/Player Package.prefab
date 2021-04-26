@@ -110,10 +110,18 @@ PrefabInstance:
       propertyPath: sb
       value: 
       objectReference: {fileID: 4121052805618322334}
+    - target: {fileID: 1502781649, guid: 83cd2203f7223cf4e927d7d579dda41f, type: 3}
+      propertyPath: speed
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4892264371814593881, guid: 83cd2203f7223cf4e927d7d579dda41f, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 4121052806615997218}
+    - target: {fileID: 4892264371814593881, guid: 83cd2203f7223cf4e927d7d579dda41f, type: 3}
+      propertyPath: playerDamage
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4930995171565948640, guid: 83cd2203f7223cf4e927d7d579dda41f, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -11,11 +11,11 @@ namespace Mehmethan.Scripts
         {
             if (!destroyBreak)
             {
-                Instantiate(breakParticle, transform); 
+                Instantiate(breakParticle, transform.position,Quaternion.identity); 
             }
             else if (destroyBreak)
             {
-                Instantiate(breakParticle, transform); 
+                Instantiate(breakParticle, transform.position,Quaternion.identity); 
                 //Destroy(gameObject,3f);
             }
         }

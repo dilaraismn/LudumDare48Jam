@@ -2,6 +2,7 @@ using System;
 using Cagri.Scripts;
 using Mehmethan.Scripts;
 using Safa.Scripts;
+using Sevval;
 using UnityEngine;
 
 namespace Arif.Scripts
@@ -28,11 +29,13 @@ namespace Arif.Scripts
            {
                return;
            }
+           
            myHealth.DealDamage(LevelManager.manager.player.playerDamage);
        }
 
        public void OnDeath()
        {
+           GetComponent<LootSystem>().Spawner();
            myBreak.OnDeath();
            Destroy(gameObject);
        }

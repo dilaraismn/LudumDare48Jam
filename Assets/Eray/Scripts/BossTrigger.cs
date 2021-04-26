@@ -13,7 +13,7 @@ namespace Eray.Scripts
             if (other.gameObject.GetComponent<PlayerMovement>())
             {
                 boss.SetPlayer(other.gameObject.transform);
-                AudioManager.instance.PlaySound(0,1);
+                AudioManager.instance.PlaySound(1,2);
                 Destroy(gameObject);
             }
         }
