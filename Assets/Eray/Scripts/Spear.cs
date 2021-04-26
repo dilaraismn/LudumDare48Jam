@@ -162,7 +162,7 @@ namespace Eray.Scripts
 
         IEnumerator WaitForReturn()
         {
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(2f);
 
             if (TargetHit == false)
             {

@@ -9,8 +9,6 @@ namespace Eray.Scripts
     public class Boss : MonoBehaviour, IEnemy
     {
         [SerializeField] private Animator anim;
-        [SerializeField] private float turnSpeed;
-        [SerializeField] private float moveSpeed;
         [SerializeField] private NavMeshAgent agent;
 
         private bool _isAttacking;
@@ -40,7 +38,6 @@ namespace Eray.Scripts
 
         private void Awake()
         {
-            _canRotate = true;
             _canMove = true;
         }
 
@@ -50,9 +47,7 @@ namespace Eray.Scripts
                 _isAttacking = true;
             if (_isAttacking)
             {
-                _isAttacking = false;
                 _canMove = false;
-                _canRotate = false;
                 _canAttack = false;
             }
         }
@@ -62,24 +57,42 @@ namespace Eray.Scripts
             BossLogic();
         }
 
-        private void RotateToPlayer()
-        {
-            if (_canRotate && !_isAttacking)
-            {
-                var dir = (player.position - transform.position).normalized;
-                var lookRot = Quaternion.LookRotation(dir);
-                transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, Time.deltaTime * turnSpeed);
-            }
-        }
+        // private void RotateToPlayer()
+        // {
+        //     if (_canRotate && !_isAttacking)
+        //     {
+        //         var dir = (player.position - transform.position).normalized;
+        //         var lookRot = Quaternion.LookRotation(dir);
+        //         transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, Time.deltaTime * turnSpeed);
+        //     }
+        // }
 
         private void MoveToPlayer()
         {
             if (_canMove && !_playerInRange)
             {
                 _isMoving = true;
-                RotateToPlayer();
-                transform.position += transform.forward.normalized * (Time.deltaTime * moveSpeed);
-                //Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * moveSpeed);
+                agent.SetDestination(player.position);
+                var dir = (player.position - transform.position).normalized;
+                var angle = Vector3.Angle(dir, transform.forward);
+                var val = (player.position - transform.position).magnitude;
+
+                if (angle > 30)
+                {
+                    var lookRot = Quaternion.LookRotation(dir);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * 5);
+                }
+                
+                if (val <= agent.stoppingDistance && angle <= 30f)
+                {
+                    _canMove = false;
+                    _isMoving = false;
+                    _playerInRange = true;
+                }
+                else
+                {
+                    _playerInRange = false;
+                }
             }
         }
 
@@ -94,8 +107,10 @@ namespace Eray.Scripts
         {
             if(!player) return;
             
-            //MoveToPlayer();
+            MoveToPlayer();
             
+            Attack();
+                
             HandleAnimation();
         }
 
@@ -110,13 +125,14 @@ namespace Eray.Scripts
         public void EndOfAttack()
         {
             _canMove = true;
-            _canRotate = true;
+            _canAttack = true;
+            _isAttacking = false;
+            _playerInRange = false;
         }
 
         public void SetPlayer(Transform t)
         {
             player = t;
-            StartCoroutine(StartFight());
         }
 
         IEnumerator StartFight()
