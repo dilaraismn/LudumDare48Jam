@@ -17,6 +17,7 @@ namespace Eray.Scripts
         private bool _isMoving;
         private bool _canMove;
         private bool _canAttack;
+        private bool hitThePlayer;
 
         private Transform player;
 
@@ -43,7 +44,10 @@ namespace Eray.Scripts
         private void Attack()
         {
             if (_playerInRange && !_isScreaming)
+            {
                 _isAttacking = true;
+                hitThePlayer = false;
+            }
             if (_isAttacking)
             {
                 _canMove = false;
@@ -142,8 +146,18 @@ namespace Eray.Scripts
             _isScreaming = false;
         }
 
-       
-        
-        
+        private void OnTriggerEnter(Collider other)
+        {
+            if (_isAttacking && !hitThePlayer)
+            {
+                if (other.gameObject.GetComponent<PlayerMovement>())
+                {
+                    hitThePlayer = true;
+                    
+                    //damage to player methods
+                }
+            }
+           
+        }
     }
 }

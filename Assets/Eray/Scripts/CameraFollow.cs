@@ -7,10 +7,10 @@ namespace Eray.Scripts
 {
     public class CameraFollow : MonoBehaviour
     {
+        public static CameraFollow instance;
         public Transform target;
 
-
-        public bool switchToTopDown;
+        
         [Header("Topdown Camera")]
         [SerializeField] private float distanceTD;
         [SerializeField] private float heightTD;
@@ -30,22 +30,18 @@ namespace Eray.Scripts
         private float _height;
         private Vector3 _mousePos;
         private float _screenHeight;
-        private bool topDownView;
+        [HideInInspector]public bool topDownView;
         private float tpDistance;
 
         private void Awake()
         {
+            instance = this;
             _screenHeight = Screen.height;
             tpDistance = distance;
         }
 
         private void Update()
         {
-            if (switchToTopDown)
-            {
-                switchToTopDown = false;
-                SwitchToTopDown();
-            }
             
             if (!topDownView)
             {

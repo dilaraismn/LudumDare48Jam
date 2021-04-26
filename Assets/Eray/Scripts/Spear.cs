@@ -15,6 +15,7 @@ namespace Eray.Scripts
         [SerializeField] private float turnSpeed;
         [SerializeField] private LayerMask targetLayer;
         [SerializeField] private Transform spearHolder;
+        [SerializeField] private SpearBehaviour sb;
 
         private Vector3 _localPos;
 
@@ -48,8 +49,19 @@ namespace Eray.Scripts
             rb.velocity = transform.forward * speed;
             _isFired = true;
 
-            StartCoroutine("WaitForReturn");
+            StartCoroutine(WaitForReturn());
 
+        }
+
+        public void SetToHand()
+        {
+            transform.position = spearHolder.position;
+            transform.rotation = spearHolder.rotation;
+            transform.SetParent(spearHolder);
+            transform.localPosition = _localPos;
+            transform.localScale = Vector3.one;
+            sb.spearThrown = false;
+            sb.moveToHand = false;
         }
 
         public bool MoveToHand()
