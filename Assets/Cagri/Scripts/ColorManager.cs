@@ -9,7 +9,7 @@ namespace Cagri.Scripts
     {
         public static ColorManager manager;
 
-        //[HideInInspector] 
+        [HideInInspector] 
         public List<ColorObjectBase> colorObjectsBases = new List<ColorObjectBase>();
         
         private void Awake()
