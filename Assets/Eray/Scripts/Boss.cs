@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using Cagri.Scripts;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Eray.Scripts
 {
@@ -9,7 +11,7 @@ namespace Eray.Scripts
         [SerializeField] private Animator anim;
         [SerializeField] private float turnSpeed;
         [SerializeField] private float moveSpeed;
-        [SerializeField] 
+        [SerializeField] private NavMeshAgent agent;
 
         private bool _isAttacking;
         private bool _isScreaming;
@@ -92,7 +94,7 @@ namespace Eray.Scripts
         {
             if(!player) return;
             
-            MoveToPlayer();
+            //MoveToPlayer();
             
             HandleAnimation();
         }
@@ -107,7 +109,6 @@ namespace Eray.Scripts
         //using in animation event
         public void EndOfAttack()
         {
-            //_state = _attackState;
             _canMove = true;
             _canRotate = true;
         }
@@ -115,6 +116,14 @@ namespace Eray.Scripts
         public void SetPlayer(Transform t)
         {
             player = t;
+            StartCoroutine(StartFight());
+        }
+
+        IEnumerator StartFight()
+        {
+            Scream();
+            yield return new WaitForSeconds(4);
+            agent.SetDestination(player.position);
         }
 
        

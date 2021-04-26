@@ -162,10 +162,16 @@ namespace Eray.Scripts
 
         IEnumerator WaitForReturn()
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(4f);
 
-            if (!TargetHit)
+            if (TargetHit == false)
+            {
                 TargetHit = true;
+                rb.velocity = Vector3.zero;
+                rb.useGravity = false;
+                rb.isKinematic = true;
+                _isFired = false;
+            }
         }
 
     }
