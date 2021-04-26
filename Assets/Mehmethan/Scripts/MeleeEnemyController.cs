@@ -95,8 +95,8 @@ namespace Mehmethan.Scripts
 
         private void OnAttack()
         {
-            Debug.Log("Saldırı yaptım");
-            //todo kilica ekleme yapilcak
+            // Debug.Log("Saldırı yaptım");
+             //todo kilica ekleme yapilcak
         }
         
         private void RotateTarget()

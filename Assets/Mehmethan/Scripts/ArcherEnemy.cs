@@ -32,7 +32,6 @@ namespace Mehmethan.Scripts
         private void Enemy_onDeath()
         {
             Destroy(gameObject);
-            //todo 
         }
 
         private void OnDisable()
@@ -113,7 +112,6 @@ namespace Mehmethan.Scripts
         private void OnAttack()
         {
             StartCoroutine(BowForward());
-            Debug.Log("Saldırı yaptım");
         }
 
         IEnumerator BowForward()
