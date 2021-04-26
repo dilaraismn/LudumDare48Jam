@@ -20,6 +20,10 @@ namespace Burak.Scripts
         public GameObject endGame;
         public GameObject credits;
 
+        public GameObject winBG;
+        public GameObject winText;
+        public GameObject loseBG;
+
         public AudioMixer audioMixer;
 
         public ColorImages[] colorImages;
@@ -106,7 +110,6 @@ namespace Burak.Scripts
             {
                 SetUIColorByIndex(4, 1);
             }*/
-
         }
 
         public void SetUIColorByIndex(int imageIndex, int colorIndex)
@@ -175,11 +178,24 @@ namespace Burak.Scripts
             settings.SetActive(true);
         }
 
-        public void EndgamePage()
+        public void EndgamePage(bool _gameWin)
         {
             CloseAllPages();
             // activate only credits
             endGame.SetActive(true);
+
+            if(_gameWin)
+            {
+                winBG.SetActive(true);
+                winText.SetActive(true);
+                loseBG.SetActive(false);
+            } else
+            {
+                winBG.SetActive(false);
+                winText.SetActive(false);
+                loseBG.SetActive(true);
+            }
+
         }
         
         public void CreditsPage()

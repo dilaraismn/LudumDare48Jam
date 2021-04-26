@@ -30,12 +30,12 @@ namespace Cagri.Scripts
 
         public void WinGame()
         {
-            //UIManager.instance.EndgamePage();
+            UIManager.instance.EndgamePage(true);
         }
 
         public void LoseGame()
         {
-            UIManager.instance.EndgamePage();
+            UIManager.instance.EndgamePage(false);
         }
         
         public void ResetManager()
