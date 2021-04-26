@@ -16,7 +16,7 @@ namespace Mehmethan.Scripts
         public bool TriggerEnemy;
         private Animator animator;
         [HideInInspector]public HealthSystem healthSystem;
-
+        public GameObject AttackCollider;
         private void OnEnable()
         {
             healthSystem.onDeath += Enemy_onDeath;
@@ -97,6 +97,16 @@ namespace Mehmethan.Scripts
         {
             healthSystem.DealDamage(LevelManager.manager.player.playerDamage);
 
+        }
+
+        public void OpenAttackCollider()
+        {
+            AttackCollider.SetActive(true);
+        }
+
+        public void CloseAttackCollider()
+        {
+            AttackCollider.SetActive(false);
         }
     }
 } 

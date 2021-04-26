@@ -21,6 +21,7 @@ namespace Mehmethan.Scripts
         private float dist;
         private MeleeEnemyController _meleeEnemyController;
         private ArcherEnemy _archerEnemy;
+        private Animator animator;
 
         private void Start()
         {
@@ -35,9 +36,12 @@ namespace Mehmethan.Scripts
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
+            animator = GetComponent<Animator>();
             _agent = GetComponent<NavMeshAgent>();
             waypointIndex = 0;
             transform.LookAt(waypoints[waypointIndex].position);
+            animator.SetTrigger("Walk");
         }
 
         private void Update()
