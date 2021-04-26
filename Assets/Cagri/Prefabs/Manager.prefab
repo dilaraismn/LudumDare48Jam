@@ -187,6 +187,7 @@ MonoBehaviour:
     canUse: 0
     myKeyCode: 53
   currentPlayerColors: []
+  splashParticle: {fileID: 8672816356241797401, guid: cd48249cf6f9d4fc3b5d3834c885c6c4, type: 3}
 --- !u!1001 &5525568278945343419
 PrefabInstance:
   m_ObjectHideFlags: 0

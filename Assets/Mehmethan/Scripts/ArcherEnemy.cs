@@ -32,6 +32,7 @@ namespace Mehmethan.Scripts
 
         private void Enemy_onDeath()
         {
+            Instantiate(GameManager.manager.splashParticle, transform.position, Quaternion.identity);
             GetComponent<LootSystem>().Spawner();
             Destroy(gameObject);
         }

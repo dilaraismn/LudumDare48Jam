@@ -11,7 +11,7 @@ namespace Safa.Scripts
     {
         [SerializeField] private float bulletSpeed;
         [SerializeField] private float damage; 
-        //todo venus Particle
+        
         private void Start()
         {
             Destroy(gameObject, 5f);

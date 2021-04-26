@@ -1,6 +1,7 @@
 using System;
 using Cagri.Scripts;
 using Safa.Scripts;
+using Sevval;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -26,8 +27,10 @@ namespace Mehmethan.Scripts
 
         private void Enemy_onDeath()
         {
+            Instantiate(GameManager.manager.splashParticle, transform.position, Quaternion.identity);
+            GetComponent<LootSystem>().Spawner();
             Destroy(gameObject);
-            //todo
+            
         }
 
         private void OnDisable()
@@ -49,7 +52,7 @@ namespace Mehmethan.Scripts
             _agent = GetComponent<NavMeshAgent>();
         }
 
-        //todo animasyonlar ayarlanacak
+       
         void Update()
         {
             if (!_isActive)
@@ -97,7 +100,7 @@ namespace Mehmethan.Scripts
         private void OnAttack()
         {
             // Debug.Log("Saldırı yaptım");
-             //todo kilica ekleme yapilcak
+            
         }
         
         private void RotateTarget()

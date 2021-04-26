@@ -12,7 +12,7 @@ namespace Cagri.Scripts
         public List<PlayerColor> defaultPlayerColors = new List<PlayerColor>();
         
         [HideInInspector]public List<PlayerColor> currentPlayerColors = new List<PlayerColor>();
-        
+        public GameObject splashParticle;
         private int _currentLevelIndex;
 
         private void Awake()

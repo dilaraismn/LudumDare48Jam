@@ -246,7 +246,7 @@ namespace Eray.Scripts
         
         
         //using in animation event
-        public void SetAttackingFalse() //todo attack ?
+        public void SetAttackingFalse() 
         {
             _isAttacking = false;
             sb.spear.inAttackState = false;
