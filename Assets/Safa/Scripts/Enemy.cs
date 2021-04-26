@@ -73,16 +73,13 @@ namespace Safa.Scripts
         {
             if (!_isActive)
             {
+                anim.SetBool("attack", false);
                 return;
             }
-
             if (!player)
             {
                 anim.SetBool("attack", false);
-
                 return;
-
-
             }
 
             if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
@@ -117,6 +114,10 @@ namespace Safa.Scripts
 
         public void OnPlayerHit()
         {
+            if (!_isActive)
+            {
+                return;
+            }
             healthSystem.DealDamage(LevelManager.manager.player.playerDamage);
         }
 
