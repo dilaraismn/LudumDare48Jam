@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 3958318847253202628}
   - component: {fileID: 4769077073455347853}
   - component: {fileID: 7639072562722730460}
+  - component: {fileID: 4484215041284900593}
   m_Layer: 0
   m_Name: EnemyMelee
   m_TagString: Untagged
@@ -248,6 +249,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   healthMax: 100
+--- !u!114 &4484215041284900593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3958318847253202648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17293cfcc6e0604aaa5ce626c37734a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentColorType: 0
+  activeMaterialsList:
+  - {fileID: -4477454650177164656, guid: 148751294f3a54535a41dd2c51971467, type: 3}
+  deActiveMaterialsList:
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  mySkinnedMeshRenderer: {fileID: 9025309070909206468}
 --- !u!1 &6057824569001548888
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,5 +380,10 @@ PrefabInstance:
 --- !u!4 &3559109767372860555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 148751294f3a54535a41dd2c51971467, type: 3}
+  m_PrefabInstance: {fileID: 3958318845241625440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &9025309070909206468 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3769916629497158492, guid: 148751294f3a54535a41dd2c51971467, type: 3}
   m_PrefabInstance: {fileID: 3958318845241625440}
   m_PrefabAsset: {fileID: 0}

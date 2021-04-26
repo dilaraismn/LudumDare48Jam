@@ -1,3 +1,4 @@
+using System;
 using Cagri.Scripts;
 using Safa.Scripts;
 using UnityEngine;
@@ -33,6 +34,13 @@ namespace Mehmethan.Scripts
             healthSystem.onDeath -= Enemy_onDeath;
 
         }
+
+        private void Awake()
+        {
+           healthSystem = GetComponent<HealthSystem>();
+          
+        }
+
         void Start()
         {
             animator = GetComponent<Animator>();

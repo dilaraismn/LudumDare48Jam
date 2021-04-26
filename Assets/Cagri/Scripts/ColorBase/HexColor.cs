@@ -1,4 +1,4 @@
-namespace Cagri.Scripts.HEX
+namespace Cagri.Scripts.ColorBase
 {
     public class HexColor : ColorObjectBase
     {

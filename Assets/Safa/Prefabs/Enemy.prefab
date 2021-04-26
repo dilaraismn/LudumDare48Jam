@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8184579186406476602}
   - component: {fileID: 8184579186406476604}
   - component: {fileID: 980877949}
+  - component: {fileID: 1370021384}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -96,9 +97,9 @@ MonoBehaviour:
   timeBetweenAttacks: 3
   attackRange: 10
   attackSpeed: 3
-  targetPoint: {fileID: 0}
   yOffset: 0
   anim: {fileID: 7998211259421441524}
+  healthSystem: {fileID: 0}
 --- !u!114 &980877949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +114,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   healthMax: 100
+--- !u!114 &1370021384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8184579186406476603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17293cfcc6e0604aaa5ce626c37734a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentColorType: 1
+  activeMaterialsList:
+  - {fileID: 3768782687746402933, guid: d8cc117343db1447e8a435ef96b67966, type: 3}
+  deActiveMaterialsList:
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
+  mySkinnedMeshRenderer: {fileID: 5575506296262412470}
 --- !u!1 &8184579186514717891
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,5 +391,10 @@ GameObject:
 --- !u!4 &6188545851696085192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8cc117343db1447e8a435ef96b67966, type: 3}
+  m_PrefabInstance: {fileID: 5938164147407724323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5575506296262412470 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2236237030686087061, guid: d8cc117343db1447e8a435ef96b67966, type: 3}
   m_PrefabInstance: {fileID: 5938164147407724323}
   m_PrefabAsset: {fileID: 0}

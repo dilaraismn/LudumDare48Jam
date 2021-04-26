@@ -40,11 +40,16 @@ namespace Mehmethan.Scripts
             healthSystem.onDeath -= Enemy_onDeath;
 
         }
+        private void Awake()
+        {
+            healthSystem = GetComponent<HealthSystem>();
+          
+        }
         void Start()
         {
             animator = GetComponent<Animator>();
             _target = LevelManager.manager.player.transform;
-            _agent = GetComponent<NavMeshAgent>();
+            _agent = GetComponent<NavMeshAgent>(); // todo navmesh Layer Ayarla
         }
     
 
