@@ -2597,26 +2597,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ad Soyad
-
-    Ad Soyad
-
-    Ad Soyad
-
-    Ad Soyad
-
-    Ad Soyad
-
-    Ad
-    Soyad
-
-    Ad Soyad
-
-    Ad Soyad
-
-    Ad Soyad
-
-    Ad Soyad'
+  m_text: "Code: Tahir \xC7a\u011Fr\u0131\r\nCode: Burak Kayalak\r\nCode: Eray Baran
+    \u0130nan\r\nCode: Mehmet G\xF6khan Bulat\r\nCode: Mehmethan Sarg\u0131n\r\nCode:
+    Safa Dedeakay\r\nCode: \u015Eevval Kat\u0131rc\u0131\r\nCode: Furkan Ceylan"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2650,7 +2633,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2679,7 +2662,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -255.78003, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2852,26 +2835,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ad Soyad
-
-    Ad Soyad
-
-    Ad Soyad
-
-    Ad Soyad
-
-    Ad Soyad
-
-    Ad
-    Soyad
-
-    Ad Soyad
-
-    Ad Soyad
-
-    Ad Soyad
-
-    Ad Soyad'
+  m_text: "Art: Dilara \u0130\u015Fman\r\nArt: G\xF6kdeniz Duyar\r\nArt: Samet Acer\r\nArt
+    and Design: Fatih K\xF6k\xE7\xFCler\r\nDesign: Arif Mertcan Kara\r\nAudio: Hasan
+    Ak\xE7a\r\nAudio: Kardelen Eren Erdin\xE7"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2905,7 +2871,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2934,7 +2900,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -175.00757, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
