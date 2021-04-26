@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace Eray.Scripts
 {
@@ -6,11 +8,48 @@ namespace Eray.Scripts
     {
         public Transform target;
         [SerializeField] private float distance;
-        [SerializeField] private float height;
+        [SerializeField] private float maxHeight;
+        [SerializeField] private float minHeight;
+        [SerializeField] private bool inverseY;
+        private float height;
 
         [SerializeField] private float rotationDamping;
         [SerializeField] private float heightDamping;
         
+        
+
+        private Vector3 mousePos;
+        private Camera _cam;
+        private float maxVal;
+        private float minVal;
+
+        private void Awake()
+        {
+            _cam = Camera.main;
+        }
+
+        private void Update()
+        {
+            mousePos = Input.mousePosition;
+
+
+
+            var val = (mousePos.y / Screen.height) * maxHeight;
+            
+
+            if (!inverseY)
+            {
+                val = Mathf.Abs(val - maxHeight);
+            }
+            
+            if (val < minHeight)
+                val = minHeight;
+
+            
+            height = val;
+
+        }
+
         void LateUpdate()
         {
             if (!target)
@@ -23,6 +62,10 @@ namespace Eray.Scripts
             var currentHeight = transform.position.y;
             
             currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, targetRotAngle, rotationDamping * Time.deltaTime);
+
+           
+            
+            
             
             currentHeight = Mathf.Lerp(currentHeight, positionY, heightDamping * Time.deltaTime);
             

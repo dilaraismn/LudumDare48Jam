@@ -1780,5 +1780,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Package
       objectReference: {fileID: 0}
+    - target: {fileID: 4121052806615997219, guid: 7d46b27679bb01d49a887cab9a9bd64e, type: 3}
+      propertyPath: distance
+      value: 6.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121052806615997219, guid: 7d46b27679bb01d49a887cab9a9bd64e, type: 3}
+      propertyPath: inverseY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121052806615997219, guid: 7d46b27679bb01d49a887cab9a9bd64e, type: 3}
+      propertyPath: maxHeight
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121052806615997219, guid: 7d46b27679bb01d49a887cab9a9bd64e, type: 3}
+      propertyPath: minHeight
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d46b27679bb01d49a887cab9a9bd64e, type: 3}
