@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Cagri.Scripts;
+using Safa.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,27 +19,44 @@ namespace Eray.Scripts
         private bool _canMove;
         private bool _canAttack;
         private bool hitThePlayer;
-
+        private HealthSystem myHealth;
         private Transform player;
+        public float attackDamage = 10;
 
         public void OnPlayerHit()
         {
-            throw new NotImplementedException();
+            myHealth.DealDamage(LevelManager.manager.player.playerDamage);
+        }
+
+        public void OnDeath()
+        {
+            GameManager.manager.WinGame();
+        }
+
+
+        private void OnEnable()
+        {
+            myHealth.onDeath += OnDeath;
+        }
+
+        private void OnDisable()
+        {
+            myHealth.onDeath -= OnDeath;
         }
 
         public void OnActive()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void OnDeActive()
         {
-            throw new NotImplementedException();
+            
         }
 
         private void Awake()
         {
-            
+            myHealth = GetComponent<HealthSystem>();
         }
 
         private void Attack()
@@ -154,7 +172,7 @@ namespace Eray.Scripts
                 {
                     hitThePlayer = true;
                     
-                    //damage to player methods
+                    LevelManager.manager.player._healthSystem.DealDamage(attackDamage);
                 }
             }
            

@@ -27,6 +27,15 @@ namespace Cagri.Scripts
             DontDestroyOnLoad(gameObject);
         }
 
+        public void WinGame()
+        {
+            
+        }
+
+        public void LoseGame()
+        {
+            
+        }
         
         public void ResetManager()
         {
