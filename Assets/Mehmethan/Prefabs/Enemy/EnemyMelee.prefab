@@ -232,7 +232,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3958318847253202648}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.2754317
   m_Height: 2.126161
@@ -276,6 +276,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
   - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
   mySkinnedMeshRenderer: {fileID: 9025309070909206468}
+  useMeshRenderer: 0
+  myMeshRenderer: {fileID: 0}
 --- !u!114 &3383566971008524101
 MonoBehaviour:
   m_ObjectHideFlags: 0

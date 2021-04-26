@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 381241366}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2133,6 +2133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3958318847253202650, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
 --- !u!4 &186252316 stripped
@@ -3246,6 +3250,10 @@ PrefabInstance:
     - target: {fileID: 3958318847253202648, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
       propertyPath: m_Name
       value: EnemyMelee
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958318847253202650, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
+      propertyPath: solidEnemy
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
@@ -4493,6 +4501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3958318847253202650, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
 --- !u!4 &368201475 stripped
@@ -4945,6 +4957,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 83600397211456515, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 171655649422920124, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 171655649422920124, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: waypoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 171655649422920125, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 242165316994016646, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4953,6 +4981,26 @@ PrefabInstance:
       propertyPath: teleportTransform
       value: 
       objectReference: {fileID: 2032043733}
+    - target: {fileID: 929211328476587885, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219849497620469481, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740894839667539196, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3273120146498850132, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457546654243482196, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4492750636453312466, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
       propertyPath: m_Name
       value: Labyrinth
@@ -4999,6 +5047,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4492750636453312467, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871096799987833253, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600514870179931119, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241408196186309981, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083016712886797002, guid: 77b8d3a8a8a9a0f4b94d4258ae4858a8, type: 3}
+      propertyPath: solidEnemy
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6584,6 +6648,10 @@ PrefabInstance:
     - target: {fileID: 3958318847253202648, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
       propertyPath: m_Name
       value: EnemyMelee
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958318847253202650, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
+      propertyPath: solidEnemy
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
@@ -10626,6 +10694,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3958318847253202650, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
 --- !u!4 &949357465 stripped
@@ -11456,6 +11528,10 @@ PrefabInstance:
     - target: {fileID: 3958318847253202648, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
       propertyPath: m_Name
       value: EnemyMelee
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958318847253202650, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
+      propertyPath: solidEnemy
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
@@ -13496,6 +13572,10 @@ PrefabInstance:
     - target: {fileID: 3958318847253202648, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
       propertyPath: m_Name
       value: EnemyMelee (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958318847253202650, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
+      propertyPath: solidEnemy
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
@@ -16995,6 +17075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 3958318847253202650, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
+      propertyPath: solidEnemy
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
 --- !u!4 &1540454230 stripped
@@ -17335,6 +17419,10 @@ PrefabInstance:
     - target: {fileID: 3958318847253202648, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
       propertyPath: m_Name
       value: EnemyMelee (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958318847253202650, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
+      propertyPath: solidEnemy
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
@@ -18811,6 +18899,10 @@ PrefabInstance:
     - target: {fileID: 3958318847253202648, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
       propertyPath: m_Name
       value: EnemyMelee
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958318847253202650, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
+      propertyPath: solidEnemy
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}

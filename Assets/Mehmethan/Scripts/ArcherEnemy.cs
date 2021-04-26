@@ -51,7 +51,8 @@ namespace Mehmethan.Scripts
         {
             animator = GetComponent<Animator>();
             _target = LevelManager.manager.player.transform;
-            _agent = GetComponent<NavMeshAgent>(); 
+            _agent = GetComponent<NavMeshAgent>();
+            animator.SetTrigger("Walk");
         }
     
 
