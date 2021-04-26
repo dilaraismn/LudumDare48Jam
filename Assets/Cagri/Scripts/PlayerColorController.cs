@@ -44,9 +44,11 @@ namespace Cagri.Scripts
                 if (currentPlayerColor.myKeyCode==targetKey)
                 {
                     currentPlayerColor.isActive = !currentPlayerColor.isActive;
+                    ColorManager.manager.OnPlayerChangeColor();
+                    break;
                 }
             }
-            ColorManager.manager.OnPlayerChangeColor();
+            
         }
 
     }

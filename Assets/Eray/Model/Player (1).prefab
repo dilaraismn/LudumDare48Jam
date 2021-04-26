@@ -932,6 +932,7 @@ GameObject:
   - component: {fileID: 5703168287469900889}
   - component: {fileID: 441149534}
   - component: {fileID: 2746475768478522244}
+  - component: {fileID: 8738619367893425096}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Untagged
@@ -998,6 +999,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   cameraTarget: {fileID: 4892264373407170540}
+  playerDamage: 0
+  _healthSystem: {fileID: 0}
 --- !u!54 &4892264371814593883
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1059,6 +1062,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   healthMax: 100
+--- !u!114 &8738619367893425096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703168287469900890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68799818d1764c8bbac36fa9aa97cd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5868649640359157478
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,24 +42,6 @@ namespace Cagri.Scripts
             }
             _isActive = false;
         }
-        
-        //todo yeni renk toplandiginda playera haber verecek ve o renk kullanilabilir olacak 
-        
-        //todo ColorManager  
-        
-        //todo Color objectBase SetColor yazilabilir 
-
-        //todo 
-
-        //todo 
-
-        //todo 
-
-        //todo 
-
-        //todo 
-
-        //todo 
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Eray.Scripts;
 using UnityEngine;
 
 namespace Cagri.Scripts
@@ -10,7 +11,7 @@ namespace Cagri.Scripts
         
         private void OnTriggerEnter(Collider other)
         {
-            TestPlayer player = other.GetComponent<TestPlayer>();
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
             if (player)
             {
                 GetComponent<Collider>().enabled = false;
