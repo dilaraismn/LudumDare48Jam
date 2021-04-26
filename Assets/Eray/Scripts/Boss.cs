@@ -21,6 +21,7 @@ namespace Eray.Scripts
         private bool hitThePlayer;
         private HealthSystem myHealth;
         private Transform player;
+        private bool isDeath;
         public float attackDamage = 10;
 
         public void OnPlayerHit()
@@ -35,6 +36,7 @@ namespace Eray.Scripts
 
         IEnumerator DeathRoutine()
         {
+            isDeath = true;
             agent.enabled = false;
             anim.SetTrigger("isDying");
             yield return new WaitForSeconds(4);
@@ -83,7 +85,8 @@ namespace Eray.Scripts
 
         private void Update()
         {
-            BossLogic();
+            if(!isDeath)
+                BossLogic();
         }
 
         // private void RotateToPlayer()
