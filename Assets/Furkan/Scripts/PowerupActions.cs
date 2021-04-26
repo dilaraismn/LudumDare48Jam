@@ -19,6 +19,11 @@ namespace Furkan.Powerup
 
         float multiplier = 1.3f;
 
+        public void OpenColor(int colorIndex)
+        {
+            GameManager.manager.currentPlayerColors[colorIndex].canUse = true;
+        }
+        
         public void HealInstant(float value)
         {
             LevelManager.manager.player._healthSystem.Heal(value);
