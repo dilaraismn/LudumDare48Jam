@@ -175,6 +175,13 @@ namespace Burak.Scripts
             settings.SetActive(true);
         }
 
+        public void EndgamePage()
+        {
+            CloseAllPages();
+            // activate only credits
+            endGame.SetActive(true);
+        }
+        
         public void CreditsPage()
         {
             CloseAllPages();

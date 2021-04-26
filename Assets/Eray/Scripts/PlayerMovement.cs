@@ -1,4 +1,5 @@
 ﻿using System;
+using Cagri.Scripts;
 using Safa.Scripts;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -45,8 +46,8 @@ namespace Eray.Scripts
 
         public void OnPlayerDeath()
         {
+            GameManager.manager.LoseGame();
             Destroy(gameObject);
-            //todo lose game
         }
 
         private void OnDisable()

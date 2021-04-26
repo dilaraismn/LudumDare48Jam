@@ -22,7 +22,7 @@ namespace Safa.Scripts
             //transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime));
             transform.position += transform.forward * (bulletSpeed * Time.deltaTime);
         }
-
+        
         private void OnTriggerEnter(Collider other)
         {
             var player = other.GetComponent<PlayerMovement>();
@@ -31,7 +31,6 @@ namespace Safa.Scripts
             {
                 Destroy(gameObject);
                 health.DealDamage(damage);
-
             }
             
         }

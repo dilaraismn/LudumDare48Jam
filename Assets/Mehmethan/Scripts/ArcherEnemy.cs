@@ -50,7 +50,7 @@ namespace Mehmethan.Scripts
         {
             animator = GetComponent<Animator>();
             _target = LevelManager.manager.player.transform;
-            _agent = GetComponent<NavMeshAgent>(); // todo navmesh Layer Ayarla
+            _agent = GetComponent<NavMeshAgent>(); 
         }
     
 

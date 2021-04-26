@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Burak.Scripts;
 using UnityEngine;
 
 namespace Cagri.Scripts
@@ -29,12 +30,12 @@ namespace Cagri.Scripts
 
         public void WinGame()
         {
-            
+            //UIManager.instance.EndgamePage();
         }
 
         public void LoseGame()
         {
-            
+            UIManager.instance.EndgamePage();
         }
         
         public void ResetManager()
