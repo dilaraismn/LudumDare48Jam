@@ -22,7 +22,12 @@ namespace Cagri.Scripts
 
         public virtual void Start()
         {
-            
+            ColorManager.manager.colorObjectsBases.Add(this);
+        }
+
+        public virtual void OnDestroy()
+        {
+            ColorManager.manager.colorObjectsBases.Remove(this);
         }
 
         public virtual void Active()
