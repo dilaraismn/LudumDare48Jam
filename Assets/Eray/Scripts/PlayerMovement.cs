@@ -1,7 +1,6 @@
 ﻿using System;
 using Cagri.Scripts;
 using Safa.Scripts;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace Eray.Scripts
