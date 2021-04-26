@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -7,6 +8,14 @@ namespace Eray.Scripts
     public class CameraFollow : MonoBehaviour
     {
         public Transform target;
+
+
+        [SerializeField] private bool switchToTopDown;
+        [Header("Topdown Camera")]
+        [SerializeField] private float distanceTD;
+        [SerializeField] private float heightTD;
+        
+        [Header("Backward Camera")]
         [SerializeField] private float distance;
         [SerializeField] private float maxHeight;
         [SerializeField] private float minHeight;
@@ -21,32 +30,43 @@ namespace Eray.Scripts
         private float _height;
         private Vector3 _mousePos;
         private float _screenHeight;
+        private bool topDownView;
+        private float tpDistance;
 
         private void Awake()
         {
             _screenHeight = Screen.height;
+            tpDistance = distance;
         }
 
         private void Update()
         {
-            _mousePos = Input.mousePosition;
-            Height = _height;
-
-
-
-            var val = (_mousePos.y / _screenHeight) * maxHeight;
-            
-
-            if (!inverseY)
+            if (switchToTopDown)
             {
-                val = Mathf.Abs(val - maxHeight);
+                switchToTopDown = false;
+                SwitchToTopDown();
             }
+            
+            if (!topDownView)
+            {
+                _mousePos = Input.mousePosition;
+                Height = _height;
 
-            val = val < minHeight ? minHeight : val;
+
+
+                var val = (_mousePos.y / _screenHeight) * maxHeight;
+            
+
+                if (!inverseY)
+                {
+                    val = Mathf.Abs(val - maxHeight);
+                }
+
+                val = val < minHeight ? minHeight : val;
 
             
-            _height = val;
-
+                _height = val;
+            }
         }
 
         void LateUpdate()
@@ -73,5 +93,19 @@ namespace Eray.Scripts
             
             transform.LookAt(target);
         }
+
+        public void SwitchToTopDown()
+        {
+            topDownView = true;
+            _height = heightTD;
+            distance = distanceTD;
+        }
+
+        public void BackToThirdPerson()
+        {
+            topDownView = false;
+            distance = tpDistance;
+        }
+        
     }
 }
