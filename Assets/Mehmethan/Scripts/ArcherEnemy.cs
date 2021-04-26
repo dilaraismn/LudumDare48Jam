@@ -86,7 +86,7 @@ namespace Mehmethan.Scripts
                 TriggerArcherEnemy = false;
             }
 
-            if (distance <= _agent.stoppingDistance)
+            if (distance <= lookRadius)
             {
                 RotateTarget();
                 animator.SetBool("Attack",false);
