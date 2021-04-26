@@ -54,14 +54,11 @@ namespace Burak.Scripts
         void Start()
         {
             BackToMenu();
-            health = 100;
-            UIManager.instance.SetHealthBar(health);
-            UIManager.instance.SetHealthText(health);
         }
-
+        
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            /*if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if(!isPaused)
                 {
@@ -108,7 +105,7 @@ namespace Burak.Scripts
             if (Input.GetKeyDown(KeyCode.B))
             {
                 SetUIColorByIndex(4, 1);
-            }
+            }*/
 
         }
 
@@ -130,13 +127,13 @@ namespace Burak.Scripts
             audioMixer.SetFloat("SFXVolume", sliderValue);
         }
 
-        public void SetHealthBar(int _health)
+        public void SetHealthBar(float _health)
         {
             healthSlider.value = _health;
             healthFillImage.color = healthGradientColor.Evaluate(healthSlider.normalizedValue);
         }
 
-        public void SetHealthText (int _health)
+        public void SetHealthText (float _health)
         {
             healthText.text = "Health: " + _health.ToString();
         }

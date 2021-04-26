@@ -44,7 +44,7 @@ namespace Safa.Scripts
 
         private void Enemy_onDeath()
         {
-            Debug.Log("Enemy died");
+            Destroy(gameObject);
         }
 
         private void OnDisable()
@@ -118,7 +118,6 @@ namespace Safa.Scripts
         public void OnPlayerHit()
         {
             healthSystem.DealDamage(LevelManager.manager.player.playerDamage);
-
         }
 
         private bool _isActive=true;

@@ -42,7 +42,7 @@ namespace Burak.Scripts
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            /*if (Input.GetKeyDown(KeyCode.Q))
             {
                 PlaySound(1, 1);
             }
@@ -65,7 +65,7 @@ namespace Burak.Scripts
             if (Input.GetKeyDown(KeyCode.D))
             {
                 StopSound(2);
-            }
+            }*/
         }
     }
 }

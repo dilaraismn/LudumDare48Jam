@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Text;
+using Cagri.Scripts;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -118,6 +119,7 @@ namespace Eray.Scripts
 
         private void OnTriggerEnter(Collider other)
         {
+            IEnemy enemy = other.GetComponent<IEnemy>();
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 if (_isFired)
@@ -130,6 +132,10 @@ namespace Eray.Scripts
                     transform.SetParent(other.gameObject.transform);
                 }
                 
+            }
+            if (enemy!=null)
+            {
+                enemy.OnPlayerHit();
             }
         }
 

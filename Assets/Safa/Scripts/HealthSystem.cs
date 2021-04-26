@@ -11,7 +11,7 @@ namespace Safa.Scripts
     {
 
         public float currentHealth;
-        public int healthMax = 100;
+        public float healthMax = 100;
 
 
         public delegate void Death();

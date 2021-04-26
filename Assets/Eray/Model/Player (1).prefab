@@ -999,7 +999,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   cameraTarget: {fileID: 4892264373407170540}
-  playerDamage: 0
+  playerDamage: 10
   _healthSystem: {fileID: 0}
 --- !u!54 &4892264371814593883
 Rigidbody:

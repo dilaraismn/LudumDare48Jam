@@ -192,7 +192,7 @@ namespace Eray.Scripts
         
         
         //using in animation event
-        public void SetAttackingFalse()
+        public void SetAttackingFalse() //todo attack ?
         {
             _isAttacking = false;
         }
