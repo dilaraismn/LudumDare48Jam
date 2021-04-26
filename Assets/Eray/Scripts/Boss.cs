@@ -30,6 +30,14 @@ namespace Eray.Scripts
 
         public void OnDeath()
         {
+            StartCoroutine(DeathRoutine());
+        }
+
+        IEnumerator DeathRoutine()
+        {
+            agent.enabled = false;
+            anim.SetTrigger("isDying");
+            yield return new WaitForSeconds(4);
             GameManager.manager.WinGame();
         }
 
