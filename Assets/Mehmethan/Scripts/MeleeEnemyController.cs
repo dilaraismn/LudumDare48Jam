@@ -55,7 +55,7 @@ namespace Mehmethan.Scripts
             {
                 return;
             }
-            if (!_target)
+            if (!_target|| GetComponent<PatrolPath>().enabled)
             {
                 return;
             }
