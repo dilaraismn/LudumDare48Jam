@@ -74,8 +74,11 @@ namespace Eray.Scripts
 
             if (Input.GetMouseButtonDown(0))
             {
-                if(sb.SpearThrown == false)
+                if (sb.SpearThrown == false)
+                {
                     _isAttacking = true;
+                    sb.spear.inAttackState = true;
+                }
             }
             
             HandleAnimation();
@@ -195,6 +198,7 @@ namespace Eray.Scripts
         public void SetAttackingFalse() //todo attack ?
         {
             _isAttacking = false;
+            sb.spear.inAttackState = false;
         }
         
         

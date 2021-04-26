@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Text;
 using Cagri.Scripts;
+using Safa.Scripts;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -22,10 +23,11 @@ namespace Eray.Scripts
 
         public bool TargetHit;
 
+        public bool inAttackState;
+
         private void OnEnable()
         {
             _localPos = transform.localPosition;
-
         }
 
         public void LookTarget(Transform target)
@@ -119,8 +121,30 @@ namespace Eray.Scripts
 
         private void OnTriggerEnter(Collider other)
         {
+            bool canParent = true;
+            HealthSystem hs;
             IEnemy enemy = other.GetComponent<IEnemy>();
-            if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            if (enemy!=null)
+            {
+                hs = other.GetComponent<HealthSystem>();
+                if (hs.currentHealth - LevelManager.manager.player.playerDamage <= 0)
+                    canParent = false;
+                if (inAttackState)
+                {
+                    inAttackState = false;
+                    enemy.OnPlayerHit();
+                }
+                if (canParent && _isFired)
+                {
+                    _isFired = false;
+                    rb.velocity = Vector3.zero;
+                    rb.useGravity = false;
+                    rb.isKinematic = true;
+                    TargetHit = true;
+                    transform.SetParent(other.gameObject.transform);
+                }
+            }
+            else if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 if (_isFired)
                 {
@@ -131,12 +155,8 @@ namespace Eray.Scripts
                     TargetHit = true;
                     transform.SetParent(other.gameObject.transform);
                 }
-                
             }
-            if (enemy!=null)
-            {
-                enemy.OnPlayerHit();
-            }
+   
         }
 
         IEnumerator WaitForReturn()

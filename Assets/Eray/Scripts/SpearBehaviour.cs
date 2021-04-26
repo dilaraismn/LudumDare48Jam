@@ -6,7 +6,7 @@ namespace Eray.Scripts
 {
     public class SpearBehaviour : MonoBehaviour
     {
-        [SerializeField] private Spear spear;
+        public Spear spear;
         [SerializeField] private Transform targetPoint;
         [SerializeField] private LayerMask targetLayers;
         [SerializeField] private Transform hoverHolder;
@@ -65,6 +65,7 @@ namespace Eray.Scripts
 
                     if (Input.GetMouseButtonUp(1) && _hasTarget)
                     {
+                        spear.inAttackState = true;
                         _hasTarget = false;
                         spear.TargetHit = false;
                         targetPoint.gameObject.SetActive(false);

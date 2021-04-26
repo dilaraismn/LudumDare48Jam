@@ -173,9 +173,10 @@ MonoBehaviour:
   turnSpeed: 60
   targetLayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 10240
   spearHolder: {fileID: 1334629634}
   TargetHit: 0
+  inAttackState: 0
 --- !u!1 &16873685559788611
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 250
   jumpMult: 5.2
-  turnAngleSmooth: 5
+  turnAngleSmooth: 2
   rb: {fileID: 4892264371814593883}
   animator: {fileID: 1337082208131159194}
   cam: {fileID: 0}
@@ -999,7 +1000,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   cameraTarget: {fileID: 4892264373407170540}
-  playerDamage: 10
+  playerDamage: 25
   _healthSystem: {fileID: 0}
 --- !u!54 &4892264371814593883
 Rigidbody:
@@ -1046,7 +1047,7 @@ MonoBehaviour:
   targetPoint: {fileID: 0}
   targetLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 10240
   hoverHolder: {fileID: 458740727}
 --- !u!114 &2746475768478522244
 MonoBehaviour:
