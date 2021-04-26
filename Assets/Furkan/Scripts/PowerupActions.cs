@@ -36,12 +36,12 @@ namespace Furkan.Powerup
 
         public void HighSpeedStartAction()
         {
-            //player.moveSpeed *= multiplier;
+            player.moveSpeed *= multiplier;
         }
 
         public void HighSpeedEndAction()
         {
-            //player.moveSpeed /= multiplier;
+            player.moveSpeed /= multiplier;
         }
 
         public void SlowTimeStartAction()
