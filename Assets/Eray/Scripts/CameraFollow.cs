@@ -11,42 +11,41 @@ namespace Eray.Scripts
         [SerializeField] private float maxHeight;
         [SerializeField] private float minHeight;
         [SerializeField] private bool inverseY;
-        private float height;
 
         [SerializeField] private float rotationDamping;
         [SerializeField] private float heightDamping;
-        
-        
 
-        private Vector3 mousePos;
-        private Camera _cam;
-        private float maxVal;
-        private float minVal;
+
+        [field: SerializeField] public float Height; 
+
+        private float _height;
+        private Vector3 _mousePos;
+        private float _screenHeight;
 
         private void Awake()
         {
-            _cam = Camera.main;
+            _screenHeight = Screen.height;
         }
 
         private void Update()
         {
-            mousePos = Input.mousePosition;
+            _mousePos = Input.mousePosition;
+            Height = _height;
 
 
 
-            var val = (mousePos.y / Screen.height) * maxHeight;
+            var val = (_mousePos.y / _screenHeight) * maxHeight;
             
 
             if (!inverseY)
             {
                 val = Mathf.Abs(val - maxHeight);
             }
-            
-            if (val < minHeight)
-                val = minHeight;
+
+            val = val < minHeight ? minHeight : val;
 
             
-            height = val;
+            _height = val;
 
         }
 
@@ -56,16 +55,12 @@ namespace Eray.Scripts
                 return;
             
             var targetRotAngle = target.eulerAngles.y;
-            var positionY = target.position.y + height;
+            var positionY = target.position.y + _height;
 
             var currentRotationAngle = transform.eulerAngles.y;
             var currentHeight = transform.position.y;
             
             currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, targetRotAngle, rotationDamping * Time.deltaTime);
-
-           
-            
-            
             
             currentHeight = Mathf.Lerp(currentHeight, positionY, heightDamping * Time.deltaTime);
             

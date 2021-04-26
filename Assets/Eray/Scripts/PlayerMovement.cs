@@ -29,6 +29,7 @@ namespace Eray.Scripts
 
         private bool _isRunning;
         private bool _isJumping;
+        private bool _isFalling;
         private bool _onGround;
         private bool _isAttacking;
 
@@ -63,6 +64,7 @@ namespace Eray.Scripts
 
 
             _onGround = GroundCheck();
+            _isFalling = FallCheck();
             _playerDir = new Vector3(_horizontalValue, 0, _verticalValue).normalized;
 
 
@@ -128,7 +130,13 @@ namespace Eray.Scripts
         {
             if (_playerDir.magnitude > .1f)
             {
-                _isRunning = _onGround;
+                if(!_isFalling)
+                    _isRunning = _onGround;
+                else
+                {
+                    _isRunning = true;
+                }
+
                 
                 if (_horizontalValue == 0)
                 {
@@ -168,15 +176,29 @@ namespace Eray.Scripts
 
         }
 
+        private bool FallCheck()
+        {
+            if (rb.velocity.y < 0 && !_onGround)
+            {
+                _isJumping = false;
+                return true;
+            }
+
+            return false;
+        }
+
         private void HandleAnimation()
         {
             animator.SetBool("isRunning", _isRunning);
             animator.SetBool("isAttacking", _isAttacking);
+            animator.SetBool("isFalling", _isFalling);
+            animator.SetBool("isJumping", _isJumping);
         }
         
 
         private void Jump()
         {
+            _isJumping = true;
             rb.AddForce(Vector3.up * jumpMult, ForceMode.Impulse);
         }
 
