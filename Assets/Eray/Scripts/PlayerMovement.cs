@@ -37,6 +37,7 @@ namespace Eray.Scripts
         public bool IsAttacking => _isAttacking;
         public float playerDamage;
         [HideInInspector]public HealthSystem _healthSystem;
+        [HideInInspector] public CameraFollow camFollow;
         private void OnEnable()
         {
             _healthSystem.onDeath += OnPlayerDeath;
@@ -56,6 +57,7 @@ namespace Eray.Scripts
         private void Awake()
         {
             _healthSystem = GetComponent<HealthSystem>();
+            camFollow = GetComponentInChildren<CameraFollow>();
         }
 
         private void Update()

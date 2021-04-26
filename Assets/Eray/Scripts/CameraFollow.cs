@@ -10,7 +10,7 @@ namespace Eray.Scripts
         public Transform target;
 
 
-        [SerializeField] private bool switchToTopDown;
+        public bool switchToTopDown;
         [Header("Topdown Camera")]
         [SerializeField] private float distanceTD;
         [SerializeField] private float heightTD;
