@@ -55,7 +55,11 @@ namespace Safa.Scripts
 
         }
 
-
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, attackRange);
+        }
 
         public virtual void Start()
         {
