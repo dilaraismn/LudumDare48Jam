@@ -7,20 +7,17 @@ namespace Mehmethan.Scripts
         [SerializeField] private GameObject breakParticle;
         [SerializeField] private bool destroyBreak;
         
-        void Update()
-        {   
-            if (Input.GetKeyDown(KeyCode.E))
+        public void OnDeath()
+        {
+            if (!destroyBreak)
             {
-                if (!destroyBreak)
-                {
-                    Instantiate(breakParticle, transform); 
-                }
-                else if (destroyBreak)
-                {
-                    Instantiate(breakParticle, transform); 
-                    Destroy(gameObject,3f);
-                }
-            } 
+                Instantiate(breakParticle, transform); 
+            }
+            else if (destroyBreak)
+            {
+                Instantiate(breakParticle, transform); 
+                //Destroy(gameObject,3f);
+            }
         }
     }
 }
