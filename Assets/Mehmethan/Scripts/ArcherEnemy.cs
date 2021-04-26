@@ -55,7 +55,16 @@ namespace Mehmethan.Scripts
 
         void Update()
         {
+            if (!_isActive)
+            {
+                return;
+            }
+            if (!_target)
+            {
+                return;
+            }
             _timeSinceLastAttack += Time.deltaTime;
+            
             float distance = Vector3.Distance(_target.position, transform.position);
 
             if (distance <= lookRadius)
@@ -65,6 +74,7 @@ namespace Mehmethan.Scripts
                 _agent.speed = 2.5f;
                 animator.SetBool("Run",true);
                 _agent.SetDestination(_target.position);
+                
             }
             else
             {
@@ -123,6 +133,19 @@ namespace Mehmethan.Scripts
         public void OnPlayerHit()
         {
             healthSystem.DealDamage(LevelManager.manager.player.playerDamage);
+        }
+
+        private bool _isActive=true;
+        public void OnActive()
+        {
+            _isActive = true;
+        }
+
+        public void OnDeActive()
+        {
+            _isActive = false;
+            _agent.SetDestination(transform.position);
+
         }
     }
 }

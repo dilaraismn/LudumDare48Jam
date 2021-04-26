@@ -71,7 +71,10 @@ namespace Safa.Scripts
 
         private void Update()
         {
-
+            if (!_isActive)
+            {
+                return;
+            }
 
             if (!player)
             {
@@ -116,6 +119,17 @@ namespace Safa.Scripts
         {
             healthSystem.DealDamage(LevelManager.manager.player.playerDamage);
 
+        }
+
+        private bool _isActive=true;
+        public void OnActive()
+        {
+            _isActive = true;
+        }
+
+        public void OnDeActive()
+        {
+            _isActive = false;
         }
     }
 

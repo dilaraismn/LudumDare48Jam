@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866b5460c39f6cb4e98db4e2acc845ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 4
+  lookRadius: 10
   timeBetweenAttacks: 2
   TriggerEnemy: 0
   healthSystem: {fileID: 0}

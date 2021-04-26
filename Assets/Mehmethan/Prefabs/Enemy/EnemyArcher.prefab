@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdb6f1d2441b6a429af92c0e2aa2206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 6
+  lookRadius: 15
   timeBetweenAttacks: 3
   bow: {fileID: 633516011673290858, guid: 5059b4c76f88ca3489e639b31f21dc0c, type: 3}
   TriggerArcherEnemy: 0

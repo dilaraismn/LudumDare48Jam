@@ -335,6 +335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 3958318847253202650, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
+      propertyPath: lookRadius
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79e28beefb98f74db6f911b00ccc015, type: 3}
 --- !u!4 &52136266 stripped
@@ -1145,6 +1149,10 @@ PrefabInstance:
     - target: {fileID: 5559254639040012769, guid: 3fb1dd01560b60243bc39109bea35159, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559254639040012770, guid: 3fb1dd01560b60243bc39109bea35159, type: 3}
+      propertyPath: lookRadius
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5559254639040012796, guid: 3fb1dd01560b60243bc39109bea35159, type: 3}
       propertyPath: m_Name

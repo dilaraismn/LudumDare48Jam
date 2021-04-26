@@ -10,27 +10,19 @@ namespace Cagri.Scripts.ColorBase
         public List<Material> deActiveMaterialsList;
 
         public SkinnedMeshRenderer mySkinnedMeshRenderer;
-        private Rigidbody _rb;
-        private NavMeshAgent _agent;
+
+        private IEnemy _enemy;
         public override void Start()
         {
             base.Start();
-            _rb=GetComponent<Rigidbody>();
-            _agent = GetComponent<NavMeshAgent>();
+            _enemy = GetComponent<IEnemy>();
 
         }
 
         public override void Active()
         {
             base.Active();
-            if (_rb)
-            {
-                _rb.isKinematic = true;
-            }
-            if (_agent)
-            {
-                _agent.enabled = true;
-            }
+            _enemy.OnActive();
             var materials = mySkinnedMeshRenderer.materials;
             for (int i = 0; i < materials.Length; i++)
             {
@@ -42,14 +34,7 @@ namespace Cagri.Scripts.ColorBase
         public override void DeActive()
         {
             base.DeActive();
-            if (_rb)
-            {
-               _rb.isKinematic = false;
-            }
-            if (_agent)
-            {
-                _agent.enabled = false;
-            }
+            _enemy.OnDeActive();
             var materials = mySkinnedMeshRenderer.materials;
             for (int i = 0; i < materials.Length; i++)
             {
