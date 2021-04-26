@@ -12,7 +12,7 @@ namespace Mehmethan.Scripts
         [SerializeField] private float lookRadius = 6f;
         [SerializeField] private float timeBetweenAttacks;
         [SerializeField] private GameObject bow;
-        
+        public bool solidEnemy;
         private Transform _target;
         private NavMeshAgent _agent;
         private float _timeSinceLastAttack;
@@ -72,7 +72,8 @@ namespace Mehmethan.Scripts
                 TriggerArcherEnemy = true;
                 _agent.speed = 2.5f;
                 animator.SetBool("Run",true);
-                _agent.SetDestination(_target.position);
+                if (!solidEnemy)
+                    _agent.SetDestination(_target.position);
                 
             }
             else
@@ -146,7 +147,8 @@ namespace Mehmethan.Scripts
         public void OnDeActive()
         {
             _isActive = false;
-            _agent.SetDestination(transform.position);
+            if (!solidEnemy)
+                _agent.SetDestination(transform.position);
 
         }
     }
