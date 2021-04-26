@@ -16,7 +16,6 @@ namespace Eray.Scripts
         private bool _playerInRange;
         private bool _isMoving;
         private bool _canMove;
-        private bool _canRotate;
         private bool _canAttack;
 
         private Transform player;
@@ -38,7 +37,7 @@ namespace Eray.Scripts
 
         private void Awake()
         {
-            _canMove = true;
+            
         }
 
         private void Attack()
@@ -100,7 +99,6 @@ namespace Eray.Scripts
         {
             _isScreaming = true;
             _canMove = false;
-            _canRotate = false;
         }
 
         private void BossLogic()
@@ -133,13 +131,15 @@ namespace Eray.Scripts
         public void SetPlayer(Transform t)
         {
             player = t;
+            StartCoroutine(StartFight());
         }
 
         IEnumerator StartFight()
         {
             Scream();
-            yield return new WaitForSeconds(4);
-            agent.SetDestination(player.position);
+            yield return new WaitForSeconds(2);
+            _canMove = true;
+            _isScreaming = false;
         }
 
        

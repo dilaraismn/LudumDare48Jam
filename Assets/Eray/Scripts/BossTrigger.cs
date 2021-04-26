@@ -12,6 +12,7 @@ namespace Eray.Scripts
             if (other.gameObject.GetComponent<PlayerMovement>())
             {
                 boss.SetPlayer(other.gameObject.transform);
+                Destroy(gameObject);
             }
         }
     }

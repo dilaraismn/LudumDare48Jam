@@ -28,6 +28,7 @@ namespace Eray.Scripts
 
 
         private bool _isRunning;
+        private bool _isRunningB;
         private bool _isJumping;
         private bool _isFalling;
         private bool _onGround;
@@ -78,6 +79,8 @@ namespace Eray.Scripts
             {
                 if (sb.SpearThrown == false)
                 {
+                    _isRunning = false;
+                    _isRunningB = false;
                     _isAttacking = true;
                     sb.spear.inAttackState = true;
                 }
@@ -130,11 +133,33 @@ namespace Eray.Scripts
         {
             if (_playerDir.magnitude > .1f)
             {
-                if(!_isFalling)
-                    _isRunning = _onGround;
+                if (!_isFalling || !_isAttacking)
+                {
+                    if (Input.GetKey(KeyCode.W))
+                    {
+                        _isRunning = _onGround;
+                        _isRunningB = false;
+                    }
+
+                    if (Input.GetKey(KeyCode.S))
+                    {
+                        _isRunningB = _onGround;
+                        _isRunning = false;
+                    }
+                }
                 else
                 {
-                    _isRunning = true;
+                    if (Input.GetKey(KeyCode.W))
+                    {
+                        _isRunning = true;
+                        _isRunningB = false;
+                    }
+
+                    if (Input.GetKey(KeyCode.S))
+                    {
+                        _isRunningB = true;
+                        _isRunning = false;
+                    }
                 }
 
                 
@@ -171,6 +196,7 @@ namespace Eray.Scripts
             else
             {
                 _isRunning = false;
+                _isRunningB = false;
                 rb.velocity = new Vector3(0, rb.velocity.y, 0);
             }
 
@@ -193,6 +219,7 @@ namespace Eray.Scripts
             animator.SetBool("isAttacking", _isAttacking);
             animator.SetBool("isFalling", _isFalling);
             animator.SetBool("isJumping", _isJumping);
+            animator.SetBool("isRunningB", _isRunningB);
         }
         
 
