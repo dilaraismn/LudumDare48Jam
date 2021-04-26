@@ -14,12 +14,22 @@ namespace Cagri.Scripts
     }
     public class PlayerColorController : MonoBehaviour
     {
+        private void Start()
+        {
+            ColorControl(KeyCode.Alpha1,0);
+            ColorControl(KeyCode.Alpha2,1);
+            ColorControl(KeyCode.Alpha3,2);
+            ColorControl(KeyCode.Alpha4,3);
+            ColorControl(KeyCode.Alpha5,4);
+            ColorControl(KeyCode.Alpha1,0);
+            ColorControl(KeyCode.Alpha2,1);
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 ColorControl(KeyCode.Alpha1,0);
-                
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
@@ -46,14 +56,22 @@ namespace Cagri.Scripts
                 if (currentPlayerColor.myKeyCode==targetKey)
                 {
                     currentPlayerColor.isActive = !currentPlayerColor.isActive;
-                    if (currentPlayerColor.isActive)
+                    if (currentPlayerColor.canUse)
                     {
-                        UIManager.instance.SetUIColorByIndex(UIIndex,2);
+                        if (currentPlayerColor.isActive)
+                        {
+                            UIManager.instance.SetUIColorByIndex(UIIndex,2);
+                        }
+                        else
+                        {
+                            UIManager.instance.SetUIColorByIndex(UIIndex,1);
+                        }
                     }
                     else
                     {
-                        UIManager.instance.SetUIColorByIndex(UIIndex,1);
+                        UIManager.instance.SetUIColorByIndex(UIIndex,0);
                     }
+                    
                     ColorManager.manager.OnPlayerChangeColor();
                     break;
                 }

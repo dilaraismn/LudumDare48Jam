@@ -14,7 +14,15 @@ namespace Arif.Scripts
             var player = other.GetComponent<PlayerMovement>();
             if (player)
             {
-                player.camFollow.switchToTopDown = isLab;
+                if (!CameraFollow.instance.topDownView)
+                {
+                    CameraFollow.instance.SwitchToTopDown();
+                }
+                else
+                {
+                    CameraFollow.instance.SwitchToTopDown();
+                }
+                
                 player.transform.position = teleportTransform.position;
             }
         }
