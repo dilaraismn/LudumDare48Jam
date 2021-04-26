@@ -130,6 +130,10 @@ namespace Mehmethan.Scripts
 
         public void OnPlayerHit()
         {
+            if (!_isActive)
+            {
+                return;
+            }
             healthSystem.DealDamage(LevelManager.manager.player.playerDamage);
         }
 
