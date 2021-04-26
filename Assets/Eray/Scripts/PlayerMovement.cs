@@ -7,8 +7,8 @@ namespace Eray.Scripts
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private float moveSpeed;
-        [SerializeField] private float jumpMult;
+        public float moveSpeed;
+        public float jumpMult;
         //[SerializeField] private float turnSmoothMult;
         [SerializeField] private float turnAngleSmooth;
         [SerializeField] private Rigidbody rb;
