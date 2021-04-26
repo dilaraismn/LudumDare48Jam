@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace Gokhan.Scripts
 {
 
-    public class ColorManager : MonoBehaviour
+    public class ColorManagerGokhan : MonoBehaviour
     {
         public GameObject _0, _1, _2, _3;
         public Button B0, B1, B2, B3;
