@@ -123,16 +123,17 @@ namespace Eray.Scripts
         {
             bool canParent = true;
             HealthSystem hs;
-            IEnemy enemy = other.GetComponent<IEnemy>();
-            if (enemy!=null)
+            IEnemy? enemy = other.GetComponent<IEnemy>();
+            if (enemy!=null || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 hs = other.GetComponent<HealthSystem>();
-                if (hs.currentHealth - LevelManager.manager.player.playerDamage <= 0)
+                if (hs && hs.currentHealth - LevelManager.manager.player.playerDamage <= 0)
                     canParent = false;
                 if (inAttackState)
                 {
                     inAttackState = false;
-                    enemy.OnPlayerHit();
+                    if(enemy!=null)
+                        enemy.OnPlayerHit();
                 }
                 if (canParent && _isFired)
                 {

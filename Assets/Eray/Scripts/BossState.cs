@@ -2,9 +2,9 @@
 
 namespace Eray.Scripts
 {
-    public abstract class BossState : MonoBehaviour
+    public class BossState : MonoBehaviour
     {
-        public abstract void PlayAnimation(Animator anim);
+        public virtual void PlayAnimation(Animator anim) {}
 
     }
 
