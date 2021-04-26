@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 4769077073455347853}
   - component: {fileID: 7639072562722730460}
   - component: {fileID: 4484215041284900593}
+  - component: {fileID: 3383566971008524101}
   m_Layer: 13
   m_Name: EnemyMelee
   m_TagString: Untagged
@@ -165,6 +166,7 @@ MonoBehaviour:
   TriggerEnemy: 0
   healthSystem: {fileID: 0}
   AttackCollider: {fileID: 341277550693589132}
+  solidEnemy: 1
 --- !u!114 &3958318847253202651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   healthMax: 100
+  resistDeath: 0
 --- !u!114 &4484215041284900593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +276,28 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
   - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
   mySkinnedMeshRenderer: {fileID: 9025309070909206468}
+--- !u!114 &3383566971008524101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3958318847253202648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015bbe0d1ffded64abfffb72bed7f275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToSpawn:
+  - item: {fileID: 2356803182182294668, guid: ce8d5dc0591cc8f4e8c46b8224bb609f, type: 3}
+    spawnRate: 40
+    minSpawnProb: 0
+    maxSpawnProb: 0
+  - item: {fileID: 6035917315743595729, guid: daaa35d7a70b6cd468be44f9fb04d634, type: 3}
+    spawnRate: 10
+    minSpawnProb: 0
+    maxSpawnProb: 0
+  positionToSpawn: {fileID: 3958318847253202630}
 --- !u!1 &6057824569001548888
 GameObject:
   m_ObjectHideFlags: 0

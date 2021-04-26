@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 3245207471931378378}
   - component: {fileID: 990264066683378573}
   - component: {fileID: 8729990870028033536}
+  - component: {fileID: 6726739368228214778}
   m_Layer: 13
   m_Name: EnemyArcher
   m_TagString: Untagged
@@ -169,6 +170,7 @@ MonoBehaviour:
   lookRadius: 20
   timeBetweenAttacks: 3
   bow: {fileID: 633516011673290858, guid: 5059b4c76f88ca3489e639b31f21dc0c, type: 3}
+  solidEnemy: 1
   TriggerArcherEnemy: 0
   bowAnimator: {fileID: 5559254638599508081}
   ArrowPossition: {fileID: 5559254638264803010}
@@ -242,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   healthMax: 100
+  resistDeath: 0
 --- !u!114 &8729990870028033536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +268,28 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
   - {fileID: 2100000, guid: b7eb0ee4e9ee9a04eb3a5ba31e06d364, type: 2}
   mySkinnedMeshRenderer: {fileID: 470872930383665720}
+--- !u!114 &6726739368228214778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559254639040012796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015bbe0d1ffded64abfffb72bed7f275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToSpawn:
+  - item: {fileID: 2356803182182294668, guid: ce8d5dc0591cc8f4e8c46b8224bb609f, type: 3}
+    spawnRate: 40
+    minSpawnProb: 0
+    maxSpawnProb: 0
+  - item: {fileID: 6035917315743595729, guid: daaa35d7a70b6cd468be44f9fb04d634, type: 3}
+    spawnRate: 10
+    minSpawnProb: 0
+    maxSpawnProb: 0
+  positionToSpawn: {fileID: 5559254639040012769}
 --- !u!1 &5559254639464078226
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cagri.Scripts;
 using Eray.Scripts;
+using Sevval;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -44,6 +45,7 @@ namespace Safa.Scripts
 
         private void Enemy_onDeath()
         {
+            GetComponent<LootSystem>().Spawner();
             Destroy(gameObject);
         }
 

@@ -38,7 +38,7 @@ namespace Sevval
         }
 
 
-        void Spawner()
+        public void Spawner()
         {
             float randomNum = Random.Range(0, 100);
             for (int i = 0; i < itemToSpawn.Length; i++)

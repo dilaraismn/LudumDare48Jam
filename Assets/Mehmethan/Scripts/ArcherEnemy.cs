@@ -1,6 +1,7 @@
 using System.Collections;
 using Cagri.Scripts;
 using Safa.Scripts;
+using Sevval;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
@@ -31,6 +32,7 @@ namespace Mehmethan.Scripts
 
         private void Enemy_onDeath()
         {
+            GetComponent<LootSystem>().Spawner();
             Destroy(gameObject);
         }
 
