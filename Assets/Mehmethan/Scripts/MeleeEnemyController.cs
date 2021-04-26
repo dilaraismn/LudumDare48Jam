@@ -48,7 +48,7 @@ namespace Mehmethan.Scripts
             _agent = GetComponent<NavMeshAgent>();
         }
 
-        
+        //todo animasyonlar ayarlanacak
         void Update()
         {
             if (!_isActive)
