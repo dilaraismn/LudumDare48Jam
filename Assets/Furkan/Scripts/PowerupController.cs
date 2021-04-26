@@ -6,11 +6,18 @@ namespace Furkan.Powerup
 {
     public class PowerupController : MonoBehaviour
     {
+        public static PowerupController instance;
         public GameObject powerupPrefab;
         public List<Powerup> powerups;
         public Dictionary<Powerup, float> activatePowerups = new Dictionary<Powerup, float>();
 
         private List<Powerup> keys = new List<Powerup>();
+
+
+        private void Awake()
+        {
+            instance = this;
+        }
 
         private void HandleGlobalPowerups()
         {
@@ -69,11 +76,11 @@ namespace Furkan.Powerup
         {
             HandleGlobalPowerups();
             //TEST
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                SpawnPowerup(powerups[UnityEngine.Random.Range(0,powerups.Count)], new Vector3(2, .5f, 2));
-            }
-            Debug.Log(powerups.Count);
+            // if (Input.GetKeyDown(KeyCode.T))
+            // {
+            //     SpawnPowerup(powerups[UnityEngine.Random.Range(0,powerups.Count)], new Vector3(2, .5f, 2));
+            // }
+            // Debug.Log(powerups.Count);
             
         }
 
@@ -82,8 +89,6 @@ namespace Furkan.Powerup
             GameObject powerupGameObject = Instantiate(powerupPrefab);
 
             var powerupBehaviour = powerupGameObject.GetComponent<PowerupBehaviour>();
-
-            powerupBehaviour.controller = this;
 
             powerupBehaviour.SetPowerUp(powerup);
 

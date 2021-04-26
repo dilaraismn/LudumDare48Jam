@@ -13,12 +13,11 @@ namespace Safa.Scripts
         public float currentHealth;
         public float healthMax = 100;
 
+        [HideInInspector]public bool resistDeath;
 
         public delegate void Death();
 
         public event Death onDeath;
-
-
 
         private void Awake()
         {
@@ -28,6 +27,10 @@ namespace Safa.Scripts
 
         public void DealDamage(float damage)
         {
+            if (resistDeath)
+            {
+                return;
+            }
             currentHealth -= damage;
 
 
@@ -36,9 +39,6 @@ namespace Safa.Scripts
                 onDeath?.Invoke();
 
             }
-
-
-
         }
 
 

@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Eray.Scripts;
 using UnityEngine;
 
 namespace Furkan.Powerup
 {
     public class PowerupBehaviour : MonoBehaviour
     {
-        public PowerupController controller;
+        
 
         [SerializeField]
         Powerup powerup;
@@ -29,9 +30,12 @@ namespace Furkan.Powerup
             initTransform = transform;
         }
 
+       
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Player")
+            var player = other.GetComponent<PlayerMovement>();
+            if (player)
             {
                 ActivatePoweUp();
                 gameObject.SetActive(false);
@@ -40,7 +44,7 @@ namespace Furkan.Powerup
 
         private void ActivatePoweUp()
         {
-            controller.ActivatePowerup(powerup);
+            PowerupController.instance.ActivatePowerup(powerup);
         }
 
         public void SetPowerUp(Powerup powerup)

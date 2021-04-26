@@ -1,34 +1,47 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cagri.Scripts;
+using Eray.Scripts;
 using UnityEngine;
 
 namespace Furkan.Powerup
 {
     public class PowerupActions : MonoBehaviour
     {
-        [SerializeField]
-        PlayerController player;
+        PlayerMovement player;
+
+
+        private void Start()
+        {
+            player = LevelManager.manager.player;
+        }
 
         float multiplier = 1.3f;
 
+        public void HealInstant(float value)
+        {
+            LevelManager.manager.player._healthSystem.Heal(value);
+        }
+
         public void RestoreHealthStartAction()
         {
-            player.health *= multiplier;
+            player._healthSystem.healthMax *= multiplier;
         }
 
         public void RestoreHealthEndAction()
         {
-            player.health /= multiplier;
+            player._healthSystem.healthMax/= multiplier;
         }
 
         public void HighSpeedStartAction()
         {
-            player.speed *= multiplier;
+            //player.moveSpeed *= multiplier;
         }
 
         public void HighSpeedEndAction()
         {
-            player.speed /= multiplier;
+            //player.moveSpeed /= multiplier;
         }
 
         public void SlowTimeStartAction()
@@ -43,12 +56,12 @@ namespace Furkan.Powerup
 
         public void ImmuneStartAction()
         {
-            player.takeDamage = false;
+            player._healthSystem.resistDeath = true;
         }
 
         public void ImmuneEndAction()
         {
-            player.takeDamage = true;
+            player._healthSystem.resistDeath = false;
         }
 
 
