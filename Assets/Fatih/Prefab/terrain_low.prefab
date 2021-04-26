@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 5638502277621951848}
   - component: {fileID: 8759536905427362509}
   - component: {fileID: 6806301530086233607}
-  m_Layer: 0
+  - component: {fileID: 6371125000642916555}
+  m_Layer: 11
   m_Name: terrain_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,6 +118,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6371125000642916555
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004672768916289490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 413b0af3a511b405986ee653ec969be1, type: 3}
 --- !u!1001 &2359966572060226110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127,6 +142,10 @@ PrefabInstance:
     - target: {fileID: 3792253825753170091, guid: f13c3acc44e594c28bedb4518a50bab1, type: 3}
       propertyPath: m_Name
       value: cave entrance (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3792253825753170091, guid: f13c3acc44e594c28bedb4518a50bab1, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4605804111123847697, guid: f13c3acc44e594c28bedb4518a50bab1, type: 3}
       propertyPath: m_RootOrder
@@ -246,6 +265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree
       objectReference: {fileID: 0}
+    - target: {fileID: 1744672563672598904, guid: a962dc95a5b5243baa776daa827bec83, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a962dc95a5b5243baa776daa827bec83, type: 3}
 --- !u!4 &4440846580984427482 stripped
@@ -308,6 +331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1744672563672598904, guid: a962dc95a5b5243baa776daa827bec83, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a962dc95a5b5243baa776daa827bec83, type: 3}
 --- !u!4 &6555280362841655101 stripped
@@ -325,6 +352,10 @@ PrefabInstance:
     - target: {fileID: 3792253825753170091, guid: f13c3acc44e594c28bedb4518a50bab1, type: 3}
       propertyPath: m_Name
       value: cave entrance
+      objectReference: {fileID: 0}
+    - target: {fileID: 3792253825753170091, guid: f13c3acc44e594c28bedb4518a50bab1, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4605804111123847697, guid: f13c3acc44e594c28bedb4518a50bab1, type: 3}
       propertyPath: m_RootOrder
@@ -399,6 +430,10 @@ PrefabInstance:
     - target: {fileID: 3792253825753170091, guid: f13c3acc44e594c28bedb4518a50bab1, type: 3}
       propertyPath: m_Name
       value: cave entrance (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3792253825753170091, guid: f13c3acc44e594c28bedb4518a50bab1, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4605804111123847697, guid: f13c3acc44e594c28bedb4518a50bab1, type: 3}
       propertyPath: m_RootOrder
