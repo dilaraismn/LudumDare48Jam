@@ -1,4 +1,5 @@
 ﻿using System;
+using Burak.Scripts;
 using Cagri.Scripts;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace Eray.Scripts
             if (other.gameObject.GetComponent<PlayerMovement>())
             {
                 boss.SetPlayer(other.gameObject.transform);
+                AudioManager.instance.PlaySound(0,1);
                 Destroy(gameObject);
             }
         }

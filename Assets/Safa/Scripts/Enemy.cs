@@ -31,12 +31,8 @@ namespace Safa.Scripts
         private void Awake()
         {
             healthSystem = GetComponent<HealthSystem>();
-            
-
-
 
         }
-
 
         private void OnEnable()
         {
