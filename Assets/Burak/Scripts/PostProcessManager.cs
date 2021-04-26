@@ -8,10 +8,11 @@ public class PostProcessManager : MonoBehaviour
 {
     public static PostProcessManager instance;
 
-    public Volume _volume;
+    public Volume volume;
 
-    Vignette vignette;
+    public VolumeProfile[] postProcessProfiles;
 
+    //Vignette vignette;
 
     private void Awake()
     {
@@ -21,22 +22,21 @@ public class PostProcessManager : MonoBehaviour
         }
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
-        _volume = GetComponent<Volume>();
-        Debug.Log(_volume.profile.name);
-        vignette = (Vignette)_volume.profile.components[0];
-        
+        volume = GetComponent<Volume>();
+        //vignette = (Vignette)volume.profile.components[0];
+    }
+
+    public void ChangeProfile(int _profileIndex)
+    {
+        volume.profile = postProcessProfiles[_profileIndex];
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(vignette)
-        {
-            Debug.Log(_volume.profile.components[0].name);
-        }
+        
     }
 }
